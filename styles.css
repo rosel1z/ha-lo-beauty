@@ -1007,6 +1007,7 @@ body.has-global-note .catalog-category-nav { top: 7.4rem; }
   }
 
   .site-nav { align-items: center; padding-inline: clamp(1.25rem, 8vw, 3rem); }
+  .site-nav .nav-extra { display: none; }
   .site-nav a { width: min(100%, 32rem); justify-content: center; text-align: center; }
   .site-nav a::after { margin-left: 0.3rem; }
 
