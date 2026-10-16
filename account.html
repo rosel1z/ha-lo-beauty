@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Личный кабинет — Ha Lo Beauty</title>
+    <link rel="stylesheet" href="styles.css?v=33">
+  </head>
+  <body class="commerce-page account-page">
+    <header class="site-header is-scrolled" data-header>
+      <a class="brand" href="index.html"><img src="assets/logo.svg" alt="Ha Lo Beauty"></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span></span><span></span></button>
+      <nav id="site-menu" class="site-nav"><a href="catalog.html">Каталог</a><a href="about.html">О бренде</a><a href="delivery.html">Доставка</a><a class="nav-extra" href="loyalty.html">Программа лояльности</a><a class="nav-extra" href="gift-card.html">Подарочная карта</a><a class="nav-extra" href="sale.html">Акции</a><a class="nav-extra" href="news.html">Новости</a><a class="nav-extra" href="contacts.html">Контакты</a><a class="nav-extra" href="cart.html">Корзина</a></nav>
+      <div class="header-actions"></div>
+    </header>
+    <main class="commerce-main">
+      <header class="commerce-heading"><p>Ha Lo Club</p><h1>Личный кабинет</h1></header>
+      <section class="account-panel">
+        <div><h2 data-account-greeting>Добро пожаловать</h2><p>Сохраняйте контактные данные и быстрее оформляйте покупки.</p></div>
+        <form data-account-form>
+          <label>Имя<input name="name" autocomplete="name" placeholder="Ваше имя"></label>
+          <label>Электронная почта<input name="email" type="email" autocomplete="email" placeholder="name@example.ru"></label>
+          <label>Телефон<input name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
+          <button type="submit">Сохранить данные</button><p data-account-status aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+    <footer class="site-footer"></footer>
+    <script type="module" src="script.js?v=33"></script>
+    <script type="module" src="account.js?v=33"></script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Каталог косметики Ha Lo Beauty: уход, макияж, детская линия, кисти и наборы.">
+    <title>Каталог — Ha Lo Beauty</title>
+    <link rel="stylesheet" href="styles.css?v=33">
+  </head>
+  <body class="catalog-page">
+    <a class="skip-link" href="#main-content">Перейти к содержанию</a>
+    <header class="site-header is-scrolled" data-header>
+      <a class="brand" href="index.html" aria-label="Ha Lo Beauty — на главную"><img src="assets/logo.svg" alt="Ha Lo Beauty"></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Открыть меню"><span></span><span></span></button>
+      <nav id="site-menu" class="site-nav" aria-label="Основная навигация">
+        <a href="catalog.html" aria-current="page">Каталог</a><a href="about.html">О бренде</a><a href="delivery.html">Доставка</a>
+        <a class="nav-extra" href="loyalty.html">Программа лояльности</a><a class="nav-extra" href="gift-card.html">Подарочная карта</a><a class="nav-extra" href="sale.html">Акции</a><a class="nav-extra" href="news.html">Новости</a><a class="nav-extra" href="contacts.html">Контакты</a>
+      </nav>
+      <div class="header-actions" aria-label="Сервисы магазина"><button type="button" aria-label="Поиск"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="m16 16 4 4"></path></svg></button><button type="button" aria-label="Профиль"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1-5 4-7 8-7s7 2 8 7"></path></svg></button><button type="button" aria-label="Корзина"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 13H6L5 8Z"></path><path d="M9 9V6a3 3 0 0 1 6 0v3"></path></svg></button></div>
+    </header>
+
+    <main id="main-content" class="catalog-main">
+      <section class="catalog-hero">
+        <h1>Все продукты</h1>
+      </section>
+
+      <nav class="catalog-category-nav" aria-label="Категории каталога">
+        <button type="button" data-category-filter="all">Все товары</button>
+        <button type="button" data-category-filter="care">Уход</button>
+        <button type="button" data-category-filter="makeup">Макияж</button>
+        <button type="button" data-category-filter="kids">Детское</button>
+        <button type="button" data-category-filter="brushes">Кисти</button>
+        <button type="button" data-category-filter="sets">Наборы</button>
+      </nav>
+
+      <section class="section catalog-showcase" aria-labelledby="catalog-title">
+        <header class="section-heading catalog-heading">
+          <div><h2 id="catalog-title" data-catalog-title>Уход</h2></div>
+          <p><span data-catalog-count>0</span> позиций</p>
+        </header>
+        <div class="catalog-toolbar">
+          <label><span>Поиск</span><input id="catalog-search" type="search" data-catalog-search placeholder="Название или тип продукта"></label>
+          <label><span>Сортировка</span><select data-catalog-sort><option value="default">По умолчанию</option><option value="price-asc">Сначала дешевле</option><option value="price-desc">Сначала дороже</option></select></label>
+        </div>
+        <div class="full-catalog-grid" data-catalog-grid aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><img src="assets/logo.svg" alt="Ha Lo Beauty"><p>&copy;&nbsp;2026 Ha Lo Beauty. Все права защищены.</p></footer>
+    <script type="module" src="script.js?v=33"></script>
+    <script type="module" src="catalog.js"></script>
+  </body>
+</html>

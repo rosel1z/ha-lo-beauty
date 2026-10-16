@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>Товар — Ha Lo Beauty</title>
+    <link rel="stylesheet" href="styles.css?v=33">
+  </head>
+  <body class="product-page">
+    <header class="site-header is-scrolled" data-header>
+      <a class="brand" href="index.html" aria-label="Ha Lo Beauty — на главную"><img src="assets/logo.svg" alt="Ha Lo Beauty"></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Открыть меню"><span></span><span></span></button>
+      <nav id="site-menu" class="site-nav product-nav" aria-label="Основная навигация">
+        <a href="catalog.html">Каталог</a><a href="about.html">О бренде</a><a href="delivery.html">Доставка</a>
+        <a class="nav-extra" href="loyalty.html">Программа лояльности</a><a class="nav-extra" href="gift-card.html">Подарочная карта</a><a class="nav-extra" href="sale.html">Акции</a><a class="nav-extra" href="news.html">Новости</a><a class="nav-extra" href="contacts.html">Контакты</a>
+      </nav>
+      <a class="product-back" href="catalog.html">← Назад</a>
+      <div class="header-actions" aria-label="Сервисы магазина"></div>
+    </header>
+
+    <section class="detail-note" data-detail-note aria-label="Преимущества магазина">
+      <p class="is-active">Бесплатная доставка при заказе от 4 000 ₽</p>
+      <p>Оригинальная продукция Ha Lo Beauty</p>
+      <p>Помощь с подбором в Telegram</p>
+    </section>
+
+    <main class="product-detail">
+      <div class="detail-gallery">
+        <img data-product-image src="assets/product-bb.png" alt="WOW BB BALM">
+      </div>
+      <div class="detail-copy">
+        <p class="detail-eyebrow" data-product-eyebrow>ББ крем для лица</p>
+        <h1 data-product-title>WOW BB BALM</h1>
+        <p class="detail-sku">Арт. <span data-product-sku>UH3321-061</span></p>
+        <p class="detail-price" data-product-price>2 300 ₽</p>
+        <p class="detail-description" data-product-description></p>
+
+        <fieldset class="detail-variants" data-detail-variants hidden>
+          <legend>Выберите вариант: <strong data-detail-variant-name></strong></legend>
+          <div data-detail-variant-options></div>
+        </fieldset>
+
+        <dl class="detail-specs" data-product-specs></dl>
+
+        <div class="detail-purchase">
+          <div class="quantity" aria-label="Количество товара">
+            <button type="button" data-detail-minus aria-label="Уменьшить количество">−</button>
+            <output data-detail-quantity>1</output>
+            <button type="button" data-detail-plus aria-label="Увеличить количество">+</button>
+          </div>
+          <button class="add-to-cart" type="button" data-detail-add>Добавить в корзину</button>
+        </div>
+        <button class="detail-favorite" type="button" data-detail-favorite aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21S3 16 3 9.5C3 5 9 3.5 12 7.5 15 3.5 21 5 21 9.5 21 16 12 21 12 21Z"></path></svg><span>Добавить в избранное</span></button>
+        <a class="marketplace-buy" data-marketplace-buy href="https://www.wildberries.ru/catalog/0/search.aspx?search=Ha%20Lo%20Beauty" target="_blank" rel="noreferrer">Купить на Wildberries ↗</a>
+        <p class="cart-confirmation" data-detail-confirmation aria-live="polite"></p>
+        <a class="official-link" href="catalog.html">Вернуться к другим товарам →</a>
+      </div>
+    </main>
+
+    <section class="section recommendations detail-recommendations" aria-labelledby="detail-recommendations-title">
+      <div class="recommendations-heading">
+        <div><h2 id="detail-recommendations-title">С этим смотрят</h2></div>
+      </div>
+      <div class="recommendation-rail" data-detail-recommendations>
+        <a class="recommendation-card" data-product-id="bb" href="product.html?id=bb"><span class="recommendation-image"><img src="assets/product-bb.png" alt="WOW BB BALM"></span><span class="recommendation-meta">ББ крем для лица</span><strong>WOW BB BALM</strong><span>2 300 ₽</span></a>
+        <a class="recommendation-card" data-product-id="elixir" href="product.html?id=elixir"><span class="recommendation-image"><img src="assets/product-elixir.png" alt="ALL IN ONE GLOW SKIN ELIXIR"></span><span class="recommendation-meta">Эликсир для сияния кожи</span><strong>ALL IN ONE GLOW SKIN ELIXIR</strong><span>1 950 ₽</span></a>
+        <a class="recommendation-card" data-product-id="oil" href="product.html?id=oil"><span class="recommendation-image"><img src="assets/product-lip-oil.png" alt="DIAMOND LIP OIL"></span><span class="recommendation-meta">Мерцающее масло для губ</span><strong>DIAMOND LIP OIL</strong><span>900 ₽</span></a>
+        <a class="recommendation-card" data-product-id="sparkle" href="product.html?id=sparkle"><span class="recommendation-image"><img src="assets/product-sparkle-gold.png" alt="WOW EYE SPARKLE GOLD"></span><span class="recommendation-meta">Спаркл для век</span><strong>WOW EYE SPARKLE GOLD</strong><span>900 ₽</span></a>
+        <a class="recommendation-card" data-product-id="highlighter" href="product.html?id=highlighter"><span class="recommendation-image"><img src="assets/product-highlighter-gold.png" alt="BAKED GLOW HIGHLIGHTER GOLD"></span><span class="recommendation-meta">Запечённый хайлайтер</span><strong>BAKED GLOW HIGHLIGHTER GOLD</strong><span>750 ₽</span></a>
+      </div>
+    </section>
+
+    <section class="section product-reviews" aria-labelledby="reviews-title">
+      <header class="reviews-heading"><div><h2 id="reviews-title">Отзывы</h2></div><p class="reviews-score">4,9 <span>★★★★★</span></p></header>
+      <div class="reviews-grid">
+        <article><div><strong>Анна</strong><span>★★★★★</span></div><p>Очень красивая текстура и аккуратный финиш. Продукт легко наносится, а упаковка выглядит действительно дорого.</p></article>
+        <article><div><strong>Мария</strong><span>★★★★★</span></div><p>Заказываю Ha Lo Beauty не первый раз. Понравилась стойкость и то, как комфортно продукт ощущается в течение дня.</p></article>
+        <article><div><strong>Елена</strong><span>★★★★★</span></div><p>Фото и оттенок совпали, доставка быстрая. Добавила в ежедневную косметичку — отличный вариант и для себя, и в подарок.</p></article>
+      </div>
+    </section>
+
+    <section class="stores" aria-labelledby="stores-title">
+      <header><p class="detail-eyebrow">Официальные площадки</p><h2 id="stores-title">Мы в других магазинах</h2></header>
+      <div class="store-grid">
+        <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=ha%20lo%20beauty" target="_blank" rel="noreferrer"><span>Wildberries</span><b>Перейти ↗</b></a>
+        <a href="https://www.ozon.ru/search/?text=ha%20lo%20beauty" target="_blank" rel="noreferrer"><span>Ozon</span><b>Перейти ↗</b></a>
+        <a href="https://market.yandex.ru/search?text=ha%20lo%20beauty" target="_blank" rel="noreferrer"><span>Яндекс Маркет</span><b>Перейти ↗</b></a>
+        <a href="https://goldapple.ru/brands/ha-lo-beauty" target="_blank" rel="noreferrer"><span>Золотое Яблоко</span><b>Перейти ↗</b></a>
+      </div>
+    </section>
+    <script type="module" src="script.js?v=33"></script>
+    <script type="module" src="product-detail.js?v=33"></script>
+  </body>
+</html>

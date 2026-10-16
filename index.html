@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Ha Lo Beauty — сияние, которое начинается с тебя.">
+    <title>Ha Lo Beauty — концепт</title>
+    <link rel="stylesheet" href="styles.css?v=33">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23000'/%3E%3Cpath d='M18 18h8v10h12V18h8v28h-8V36H26v10h-8z' fill='%23b69352'/%3E%3C/svg%3E">
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main-content">Перейти к содержанию</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html" aria-label="Ha Lo Beauty — на главную">
+        <img src="assets/logo.svg" alt="Ha Lo Beauty">
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Открыть меню">
+        <span></span><span></span>
+      </button>
+      <nav id="site-menu" class="site-nav" aria-label="Основная навигация">
+        <a href="catalog.html">Каталог</a>
+        <a href="about.html">О бренде</a>
+        <a href="delivery.html">Доставка</a>
+        <a class="nav-extra" href="loyalty.html">Программа лояльности</a>
+        <a class="nav-extra" href="gift-card.html">Подарочная карта</a>
+        <a class="nav-extra" href="sale.html">Акции</a>
+        <a class="nav-extra" href="news.html">Новости</a>
+        <a class="nav-extra" href="contacts.html">Контакты</a>
+      </nav>
+      <div class="header-actions" aria-label="Сервисы магазина">
+        <button type="button" aria-label="Поиск">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="m16 16 4 4"></path></svg>
+        </button>
+        <button type="button" aria-label="Профиль">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1-5 4-7 8-7s7 2 8 7"></path></svg>
+        </button>
+        <button type="button" aria-label="Корзина">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 13H6L5 8Z"></path><path d="M9 9V6a3 3 0 0 1 6 0v3"></path></svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-label="Бестселлер Ha Lo Beauty">
+        <a class="hero-media" href="#products" aria-label="Смотреть бестселлер WOW BB BALM">
+          <img src="assets/banner-main.png" alt="Ханна представляет бестселлер WOW BB BALM">
+        </a>
+      </section>
+
+      <div class="marquee" aria-label="Преимущества Ha Lo Beauty">
+        <div class="marquee-track">
+          <span>Ha Lo Beauty</span><i></i><span>Произведено в Корее</span><i></i><span>Красота без правил</span><i></i><span>Бестселлеры для сияния</span><i></i>
+          <span aria-hidden="true">Ha Lo Beauty</span><i aria-hidden="true"></i><span aria-hidden="true">Произведено в Корее</span><i aria-hidden="true"></i><span aria-hidden="true">Красота без правил</span><i aria-hidden="true"></i><span aria-hidden="true">Бестселлеры для сияния</span><i aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <section id="categories" class="section categories" aria-label="Категории товаров">
+        <div class="category-grid">
+          <a class="category-tile category-tile--care" href="catalog.html?category=care" data-category-filter="care">
+            <span class="category-name">Уход</span>
+            <span class="category-cta">Смотреть категорию</span>
+          </a>
+          <a class="category-tile category-tile--makeup" href="catalog.html?category=makeup" data-category-filter="makeup">
+            <span class="category-name">Макияж</span>
+            <span class="category-cta">Смотреть категорию</span>
+          </a>
+          <a class="category-tile category-tile--kids" href="catalog.html?category=kids" data-category-filter="kids">
+            <span class="category-name">Детское</span>
+            <span class="category-cta">Смотреть категорию</span>
+          </a>
+          <a class="category-tile category-tile--brushes" href="catalog.html?category=brushes" data-category-filter="brushes">
+            <span class="category-name">Кисти</span>
+            <span class="category-cta">Смотреть категорию</span>
+          </a>
+          <a class="category-tile category-tile--sets" href="catalog.html?category=sets" data-category-filter="sets">
+            <span class="category-name">Наборы</span>
+            <span class="category-cta">Смотреть категорию</span>
+          </a>
+        </div>
+      </section>
+
+      <section id="products" class="section products" aria-labelledby="products-title">
+        <header class="section-heading">
+          <h2 id="products-title">Бестселлеры</h2>
+          <a href="catalog.html"><span class="desktop-label">Смотреть все товары</span><span class="mobile-label">Все</span><b aria-hidden="true">→</b></a>
+        </header>
+        <div class="product-grid">
+          <article class="catalog-card">
+            <a class="catalog-card-media" href="product.html?id=bb"><img src="assets/product-bb.png" alt="WOW BB BALM"></a>
+            <div class="catalog-card-copy"><span>ББ крем для лица</span><h3>WOW BB BALM</h3><p>Бархатное покрытие без эффекта маски, уход и SPF 50.</p><strong>2 300 ₽</strong></div>
+          </article>
+          <article class="catalog-card">
+            <a class="catalog-card-media" href="product.html?id=elixir"><img src="assets/product-elixir.png" alt="ALL IN ONE GLOW SKIN ELIXIR"></a>
+            <div class="catalog-card-copy"><span>Эликсир для сияния кожи</span><h3>ALL IN ONE GLOW SKIN ELIXIR</h3><p>Увлажняет, разглаживает и дарит эффект «стеклянной кожи».</p><strong>1 950 ₽</strong></div>
+          </article>
+          <article class="catalog-card">
+            <a class="catalog-card-media" href="product.html?id=oil"><img src="assets/product-lip-oil.png" alt="DIAMOND LIP OIL"></a>
+            <div class="catalog-card-copy"><span>Мерцающее масло для губ</span><h3>DIAMOND LIP OIL</h3><p>Влажный блеск и 3D-объём с невесомой текстурой.</p><strong>900 ₽</strong></div>
+          </article>
+          <article class="catalog-card">
+            <a class="catalog-card-media" href="product.html?id=sparkle"><img src="assets/product-sparkle-gold.png" alt="WOW EYE SPARKLE GOLD"></a>
+            <div class="catalog-card-copy"><span>Спаркл для век · золото</span><h3>WOW EYE SPARKLE GOLD</h3><p>Сливочная текстура с эффектом деликатного влажного сияния.</p><strong>900 ₽</strong></div>
+          </article>
+          <article class="catalog-card">
+            <a class="catalog-card-media" href="product.html?id=highlighter"><img src="assets/product-highlighter-gold.png" alt="BAKED GLOW HIGHLIGHTER GOLD"></a>
+            <div class="catalog-card-copy"><span>Запечённый хайлайтер · золото</span><h3>BAKED GLOW HIGHLIGHTER GOLD</h3><p>Мягкое подсвечивание кожи без выраженных блёсток.</p><strong>750 ₽</strong></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="results-reels" aria-labelledby="results-reels-title">
+        <header class="results-reels-heading">
+          <h2 id="results-reels-title">Реальные отзывы</h2>
+          <div class="results-reels-controls">
+            <button type="button" data-results-prev aria-label="Предыдущее видео">←</button>
+            <button type="button" data-results-next aria-label="Следующее видео">→</button>
+          </div>
+        </header>
+        <div class="results-reels-rail" data-results-rail>
+          <article class="results-reel"><video src="assets/review-1.mp4" playsinline preload="metadata" aria-label="Видеоотзыв 1"></video><button type="button" aria-label="Воспроизвести видеоотзыв 1">▶</button></article>
+          <article class="results-reel"><video src="assets/review-2.mp4" playsinline preload="metadata" aria-label="Видеоотзыв 2"></video><button type="button" aria-label="Воспроизвести видеоотзыв 2">▶</button></article>
+          <article class="results-reel"><video src="assets/review-3.mp4" playsinline preload="metadata" aria-label="Видеоотзыв 3"></video><button type="button" aria-label="Воспроизвести видеоотзыв 3">▶</button></article>
+          <article class="results-reel"><video src="assets/review-4.mp4" playsinline preload="metadata" aria-label="Видеоотзыв 4"></video><button type="button" aria-label="Воспроизвести видеоотзыв 4">▶</button></article>
+          <article class="results-reel"><video src="assets/review-5.mp4" playsinline preload="metadata" aria-label="Видеоотзыв 5"></video><button type="button" aria-label="Воспроизвести видеоотзыв 5">▶</button></article>
+          <article class="results-reel"><video src="assets/review-6.mp4" playsinline preload="metadata" aria-label="Видеоотзыв 6"></video><button type="button" aria-label="Воспроизвести видеоотзыв 6">▶</button></article>
+        </div>
+      </section>
+
+      <section id="new-products" class="section products home-new" aria-labelledby="new-products-title">
+        <header class="section-heading">
+          <h2 id="new-products-title">Новинки</h2>
+          <a href="catalog.html?sort=new"><span class="desktop-label">Смотреть все новинки</span><span class="mobile-label">Все</span><b aria-hidden="true">→</b></a>
+        </header>
+        <div class="product-grid">
+          <article class="catalog-card"><a class="catalog-card-media" href="product.html?id=baked-glow-highlighter"><img src="assets/catalog/BAKED GLOW HIGHLIGHTER (GOLD).png" alt="BAKED GLOW HIGHLIGHTER GOLD"></a><div class="catalog-card-copy"><span>Запечённый хайлайтер · золото</span><h3>BAKED GLOW HIGHLIGHTER</h3><p>Мягкое деликатное сияние без выраженных блёсток.</p><strong>750 ₽</strong></div></article>
+          <article class="catalog-card"><a class="catalog-card-media" href="product.html?id=kids-care-gift-set"><img src="assets/catalog/Набор в подарочном коробе «УХОДОВАЯ ЛИНЕЙКА ДЛЯ ДЕТЕЙ С НАТУРАЛЬНЫМИ ЭКСТРАКТАМИ».png" alt="Уходовая линейка для детей"></a><div class="catalog-card-copy"><span>Подарочный набор · 0+</span><h3>УХОДОВАЯ ЛИНЕЙКА ДЛЯ ДЕТЕЙ</h3><p>Набор с натуральными экстрактами в подарочном коробе.</p><strong>1 500 ₽</strong></div></article>
+          <article class="catalog-card"><a class="catalog-card-media" href="product.html?id=makeup-brush-360"><img src="assets/catalog/MAKE UP BRUSH 360.png" alt="MAKE UP BRUSH 360"></a><div class="catalog-card-copy"><span>Для румян и хайлайтера</span><h3>MAKE UP BRUSH 360</h3><p>Кисть для мягкой растушёвки сухих текстур.</p><strong>950 ₽</strong></div></article>
+          <article class="catalog-card"><a class="catalog-card-media" href="product.html?id=juicy-lip-oil"><img src="assets/catalog/ФРУКТОВОЕ МАСЛО ДЛЯ ГУБ В ЧЕХЛЕ С ПОДВЕСОМ JUICY LIP OIL.png" alt="JUICY LIP OIL"></a><div class="catalog-card-copy"><span>Фруктовое масло для губ</span><h3>JUICY LIP OIL</h3><p>Масло для губ в фирменном чехле с подвесом.</p><strong>1 500 ₽</strong></div></article>
+        </div>
+      </section>
+
+      <section id="achievement" class="achievement" aria-labelledby="achievement-title">
+        <div class="achievement-copy">
+          <p>VOICE BEAUTY AWARDS 2025</p>
+          <h2 id="achievement-title">Главный бьюти-инфлюенсер года</h2>
+          <div class="brand-story">
+            <p>Ha Lo Beauty вырос из личной философии Ханны: уход должен давать заметный результат, а макияж — свободу быть разной каждый день.</p>
+            <p>В основе уходовых бестселлеров — корейская экспертиза и формулы с ниацинамидом, гиалуроновой кислотой, пантенолом и растительными экстрактами. Они помогают поддерживать увлажнение, ровный тон и естественное сияние кожи.</p>
+          </div>
+          <dl class="brand-values">
+            <div><dt>01</dt><dd>Корейские уходовые формулы</dd></div>
+            <div><dt>02</dt><dd>Уход и макияж в одном ритуале</dd></div>
+            <div><dt>03</dt><dd>Красота с характером</dd></div>
+          </dl>
+        </div>
+        <div class="achievement-media" aria-label="Ханна и продукты Ha Lo Beauty">
+          <figure class="polaroid polaroid--one"><img src="assets/award-hanna-01.jpg" alt="Ханна с наградой VOICE Beauty Awards 2025"><figcaption>VOICE Beauty Awards · 2025</figcaption></figure>
+          <figure class="polaroid polaroid--two"><img src="assets/award-hanna-02.jpg" alt="Ханна с наградой крупным планом"><figcaption>Главная награда премии</figcaption></figure>
+          <figure class="polaroid polaroid--three"><img src="assets/award-hanna-03.jpg" alt="Награда VOICE Beauty Awards 2025"><figcaption>Главный бьюти-инфлюенсер</figcaption></figure>
+        </div>
+      </section>
+
+      <section id="motion" class="motion" aria-labelledby="motion-title">
+        <div class="motion-heading">
+          <div><h2 id="motion-title">Повтори образ Ханны</h2></div>
+          <div class="motion-intro"><div class="rail-controls rail-controls--dark"><button type="button" data-motion-prev aria-label="Предыдущее видео">←</button><button type="button" data-motion-next aria-label="Следующее видео">→</button></div></div>
+        </div>
+        <div class="editorial-rail" data-editorial-rail>
+          <article class="look-slide">
+            <svg class="sparkle-field" viewBox="0 0 1000 700" aria-hidden="true"><path d="M110 135v44M88 157h44M158 252v24M146 264h24M850 135v40M830 155h40M880 390v26M867 403h26M110 520v30M95 535h30"/><circle cx="210" cy="110" r="4"/><circle cx="800" cy="520" r="5"/><circle cx="160" cy="410" r="3"/></svg>
+            <div class="look-video">
+              <video src="assets/sparkle-reel.mp4" muted playsinline preload="metadata" data-motion-video data-start="0"></video>
+              <button class="motion-play" type="button" data-motion-play aria-label="Воспроизвести видео">▶</button>
+              <div class="motion-caption"><h3>Спарклы: влажное сияние</h3><p>Образ Ханны и все продукты, использованные в видео.</p></div>
+            </div>
+            <div class="look-label"><h3>Сияющий взгляд</h3><p>5 оттенков · 900 ₽</p><button class="look-products-toggle" type="button" aria-expanded="false" aria-controls="look-products-sparkle">Посмотреть продукты <span>↓</span></button><div class="look-shades" aria-label="Оттенки спаркла"><button class="is-selected" type="button" style="--tone:#d9a55b" data-look-product-index="0" aria-label="Gold" aria-pressed="true"></button><button type="button" style="--tone:#b58a9b" data-look-product-index="1" aria-label="Quartz" aria-pressed="false"></button><button type="button" style="--tone:#9a786e" data-look-product-index="2" aria-label="Metallic" aria-pressed="false"></button><button type="button" style="--tone:#74666c" data-look-product-index="3" aria-label="Graphit" aria-pressed="false"></button><button type="button" style="--tone:#dedbd6" data-look-product-index="4" aria-label="Diamond" aria-pressed="false"></button></div></div>
+            <div id="look-products-sparkle" class="floating-products" aria-label="Товары из видео о спарклах">
+              <a href="product.html?id=sparkle" class="float-product float-product--one"><img src="assets/product-sparkle-gold.png" alt="WOW EYE SPARKLE GOLD"><span><small>Gold · 1497774114</small><strong>WOW EYE SPARKLE</strong><em>900 ₽</em></span></a>
+              <a href="product.html?id=sparkle-quartz" class="float-product float-product--two"><img src="assets/product-sparkle-quartz.png" alt="WOW EYE SPARKLE QUARTZ"><span><small>Quartz · 1497774115</small><strong>WOW EYE SPARKLE</strong><em>900 ₽</em></span></a>
+              <a href="product.html?id=sparkle-metallic" class="float-product float-product--three"><img src="assets/product-sparkle-metallic.png" alt="WOW EYE SPARKLE METALLIC"><span><small>Metallic · 1497774112</small><strong>WOW EYE SPARKLE</strong><em>900 ₽</em></span></a>
+              <a href="product.html?id=sparkle-graphit" class="float-product float-product--four"><img src="assets/product-sparkle-graphit.png" alt="WOW EYE SPARKLE GRAPHIT"><span><small>Graphit</small><strong>WOW EYE SPARKLE</strong><em>900 ₽</em></span></a>
+              <a href="product.html?id=sparkle-diamond" class="float-product float-product--five"><img src="assets/product-sparkle-diamond.png" alt="WOW EYE SPARKLE DIAMOND"><span><small>Diamond · 1497774111</small><strong>WOW EYE SPARKLE</strong><em>900 ₽</em></span></a>
+            </div>
+          </article>
+
+          <article class="look-slide">
+            <svg class="sparkle-field sparkle-field--two" viewBox="0 0 1000 700" aria-hidden="true"><path d="M130 175v38M111 194h38M175 470v28M161 484h28M845 115v48M821 139h48M875 445v26M862 458h26"/><circle cx="210" cy="120" r="4"/><circle cx="790" cy="530" r="5"/><circle cx="120" cy="360" r="3"/></svg>
+            <div class="look-video">
+              <video src="assets/sparkle-reel.mp4" muted playsinline preload="metadata" data-motion-video data-start="9"></video>
+              <button class="motion-play" type="button" data-motion-play aria-label="Воспроизвести второе видео">▶</button>
+              <div class="motion-caption"><h3>Мягкий контур и блеск</h3><p>Следующий образ — выразительные губы и деликатное свечение кожи.</p></div>
+            </div>
+            <div class="look-label"><h3>Сияющий образ</h3><p>Три акцента Ханны</p><button class="look-products-toggle" type="button" aria-expanded="false" aria-controls="look-products-glow">Посмотреть продукты <span>↓</span></button></div>
+            <div id="look-products-glow" class="floating-products" aria-label="Товары для сияющего образа">
+              <a href="product.html?id=all-day-lip-pencil" class="float-product float-product--one"><img src="assets/catalog/ALL DAY LIP PENCIL, SHADE_ OLD MONEY.png" alt="ALL DAY LIP PENCIL"><span><small>Old Money · UH3321-245</small><strong>ALL DAY LIP PENCIL</strong><em>650 ₽</em></span></a>
+              <a href="product.html?id=oil" class="float-product float-product--two"><img src="assets/product-lip-oil.png" alt="DIAMOND LIP OIL"><span><small>UH3321-252</small><strong>DIAMOND LIP OIL</strong><em>900 ₽</em></span></a>
+              <a href="product.html?id=highlighter" class="float-product float-product--three"><img src="assets/product-highlighter-gold.png" alt="BAKED GLOW HIGHLIGHTER GOLD"><span><small>UH3321-278</small><strong>BAKED GLOW HIGHLIGHTER</strong><em>750 ₽</em></span></a>
+            </div>
+          </article>
+        </div>
+        <div class="motion-progress" aria-hidden="true"><span data-motion-progress></span></div><div class="motion-pagination" aria-label="Выбор образа"><button type="button" data-motion-dot="0" aria-label="Выбрать образ 1" aria-pressed="true"></button><button type="button" data-motion-dot="1" aria-label="Выбрать образ 2" aria-pressed="false"></button></div>
+      </section>
+
+      <section id="recommendations" class="section recommendations" aria-labelledby="recommendations-title">
+        <div class="recommendations-heading">
+          <h2 id="recommendations-title">Рекомендуем</h2>
+          <div class="rail-controls" aria-label="Прокрутка рекомендаций">
+            <button type="button" data-rail-prev aria-label="Назад">←</button>
+            <button type="button" data-rail-next aria-label="Вперёд">→</button>
+          </div>
+        </div>
+        <div class="recommendation-rail" data-recommendation-rail>
+          <a class="recommendation-card" href="product.html?id=bb">
+            <span class="recommendation-image"><img src="assets/product-bb.png" alt="WOW BB BALM"></span>
+            <span class="recommendation-meta">ББ крем для лица</span><strong>WOW BB BALM</strong><span>2 300 ₽</span>
+          </a>
+          <a class="recommendation-card" href="product.html?id=elixir">
+            <span class="recommendation-image"><img src="assets/product-elixir.png" alt="ALL IN ONE GLOW SKIN ELIXIR"></span>
+            <span class="recommendation-meta">Эликсир для сияния кожи</span><strong>ALL IN ONE GLOW SKIN ELIXIR</strong><span>1 950 ₽</span>
+          </a>
+          <a class="recommendation-card" href="product.html?id=oil">
+            <span class="recommendation-image"><img src="assets/product-lip-oil.png" alt="DIAMOND LIP OIL"></span>
+            <span class="recommendation-meta">Мерцающее масло для губ</span><strong>DIAMOND LIP OIL</strong><span>900 ₽</span>
+          </a>
+          <a class="recommendation-card" href="product.html?id=highlighter">
+            <span class="recommendation-image"><img src="assets/product-highlighter-gold.png" alt="BAKED GLOW HIGHLIGHTER GOLD"></span>
+            <span class="recommendation-meta">Запечённый хайлайтер</span><strong>BAKED GLOW HIGHLIGHTER GOLD</strong><span>750 ₽</span>
+          </a>
+        </div>
+      </section>
+
+      <section id="help" class="section help" aria-labelledby="help-title">
+        <h2 id="help-title">Нужна помощь?</h2>
+        <p>Поможем подобрать оттенок, оформить заказ и ответим на вопросы о доставке.</p>
+        <div class="help-links">
+          <a href="tel:+79251327220">+7 925 132-72-20</a>
+          <a href="mailto:hb@halo-beauty.ru">hb@halo-beauty.ru</a>
+          <a class="help-primary" href="https://t.me/HaLoBeauty_support" target="_blank" rel="noreferrer">Написать в Telegram ↗</a>
+        </div>
+      </section>
+
+      <section class="marketplaces" aria-label="Ha Lo Beauty на маркетплейсах">
+        <div class="marketplace-links">
+          <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=ha%20lo%20beauty" target="_blank" rel="noreferrer"><small>Ha Lo Beauty на</small><span>Wildberries</span><b>Перейти ↗</b></a>
+          <a href="https://www.ozon.ru/search/?text=ha%20lo%20beauty" target="_blank" rel="noreferrer"><small>Ha Lo Beauty на</small><span>Ozon</span><b>Перейти ↗</b></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img src="assets/logo.svg" alt="Ha Lo Beauty">
+      <p>&copy;&nbsp;2026 Ha Lo Beauty. Все права защищены.</p>
+    </footer>
+    <script type="module" src="script.js?v=33"></script>
+  </body>
+</html>
