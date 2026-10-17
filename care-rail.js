@@ -105,6 +105,7 @@ export const initCareRail = (root, products, options = {}) => {
   let moved = false;
   let hovering = false;
   let focused = false;
+  let manuallyPaused = false;
 
   const measure = () => {
     segmentWidth = track.scrollWidth / 2;
@@ -166,7 +167,7 @@ export const initCareRail = (root, products, options = {}) => {
   const tick = (time) => {
     const elapsed = previousTime ? Math.min(time - previousTime, 48) : 0;
     previousTime = time;
-    const paused = reducedMotion.matches || documentRef.hidden || pointerId !== null || hovering || focused;
+    const paused = manuallyPaused || reducedMotion.matches || documentRef.hidden || pointerId !== null || hovering || focused;
     if (!paused && segmentWidth > 0) {
       offset += elapsed * 0.024;
       renderOffset();
@@ -198,6 +199,7 @@ export const initCareRail = (root, products, options = {}) => {
     const distance = event.clientX - pointerStart;
     if (!moved && Math.abs(distance) > 8) {
       moved = true;
+      manuallyPaused = true;
       viewport.setPointerCapture?.(pointerId);
       root.classList.add('is-dragging');
     }
@@ -210,7 +212,7 @@ export const initCareRail = (root, products, options = {}) => {
     if (viewport.hasPointerCapture?.(pointerId)) viewport.releasePointerCapture(pointerId);
     pointerId = null;
     root.classList.remove('is-dragging');
-    if (moved) select(activeIndex, true);
+    // Keep the exact released position; snapping rounded short swipes back to their start.
   };
   on(viewport, 'pointerup', finishPointer);
   on(viewport, 'pointercancel', finishPointer);

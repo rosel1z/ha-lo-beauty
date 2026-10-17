@@ -17,7 +17,7 @@ export function initLoyaltyCards(root = document) {
       ['--card-rx', '--card-ry', '--card-light-x', '--card-light-y'].forEach(property => card.style.removeProperty(property));
     };
     card.addEventListener('pointermove', event => {
-      if (reducedMotion.matches) return;
+      if (reducedMotion.matches || event.pointerType === 'touch') return;
       const bounds = card.getBoundingClientRect();
       const tilt = getCardTilt(event.clientX - bounds.left, event.clientY - bounds.top, bounds.width, bounds.height);
       card.classList.add('is-tilting');

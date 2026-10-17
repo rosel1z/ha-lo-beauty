@@ -66,7 +66,7 @@ test('keeps the retired influencer block off the home page', async () => {
 test('loads the concept stylesheet and supplied hero banner', async () => {
   const html = await readIndex();
   assert.match(html, /href=["']styles\.css(?:\?v=\d+)?["']/);
-  assert.match(html, /poster=["']assets\/banner-main\.png["']/);
+  assert.doesNotMatch(html, /poster=["']assets\/banner-main\.png["']/);
   assert.match(html, /Новая коллекция Ha Lo Beauty/);
 });
 
@@ -133,7 +133,7 @@ test('renders five category links and keeps the full catalog on its own page', a
 
 test('uses the supplied banner, a slim marquee, text-only categories and products below', async () => {
   const html = await readIndex();
-  assert.match(html, /assets\/banner-main\.png/);
+  assert.match(html, /assets\/hero-launch\.mp4/);
   assert.match(html, /class=["']marquee["']/);
   const categoryMarkup = html.match(/<div class="category-grid">([\s\S]*?)<\/div>\s*<\/section>/)?.[1] ?? '';
   assert.doesNotMatch(categoryMarkup, /<img/);

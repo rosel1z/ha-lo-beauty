@@ -1,6 +1,8 @@
 import { products } from './product-data.js';
 import { catalogProducts } from './catalog-data.js';
 import { clampQuantity, addCartItem, toggleFavorite, isFavorite } from './site-state.js';
+import { getProductGallery, getProductCategory, initProductGallery } from './product-experience.js?v=1';
+import { CARE_FORMULAS } from './care-rail.js?v=8';
 
 const id = new URLSearchParams(window.location.search).get('id') ?? 'bb';
 const aliases = Object.freeze({
@@ -37,6 +39,53 @@ $('[data-product-image]').src = product.image;
 $('[data-product-image]').alt = product.name;
 $('[data-marketplace-buy]').href = `https://www.wildberries.ru/catalog/0/search.aspx?search=${encodeURIComponent(`Ha Lo Beauty ${product.name}`)}`;
 document.title = `${product.name} — Ha Lo Beauty`;
+
+const category = getProductCategory(catalogProduct?.category);
+$('[data-product-category]').textContent = category.name;
+$('[data-product-category]').href = category.href;
+$('[data-product-current]').textContent = product.name;
+const careFormula = CARE_FORMULAS[id];
+if (careFormula) $('[data-product-description]').textContent = careFormula.description;
+initProductGallery($('[data-product-gallery]'), getProductGallery(product, catalogProduct), product.name);
+
+const featuredIngredients = {
+  bb: [['Муцин улитки', 'Ухаживающий компонент формулы']],
+  elixir: [['Гиалуроновая кислота', 'Увлажнение кожи'], ['Ниацинамид', 'Уход за тоном кожи'], ['Пантенол', 'Мягкость и комфорт']],
+  oil: [['Масло арганы', 'Смягчение губ'], ['Масло кокоса', 'Питание и комфорт'], ['Витамин E', 'Ухаживающий компонент']],
+};
+const ingredients = careFormula?.ingredients ?? featuredIngredients[aliases[id] ?? id] ?? [];
+const ingredientGrid = $('[data-product-ingredients]');
+const dropImages = ['drop-lavender.jpg', 'drop-rose.jpg', 'drop-glycerin.jpg'];
+ingredients.forEach(([name, benefit], index) => {
+  const item = document.createElement('article');
+  const image = document.createElement('img');
+  image.src = `assets/ingredients/${dropImages[index % dropImages.length]}`;
+  image.alt = ''; image.loading = 'lazy';
+  const title = document.createElement('h3'); title.textContent = name;
+  const copy = document.createElement('p'); copy.textContent = benefit;
+  item.append(image, title, copy); ingredientGrid.append(item);
+});
+$('[data-product-ingredients-note]').hidden = ingredients.length > 0;
+$('[data-product-inci-request]').href = `mailto:hb@halo-beauty.ru?subject=${encodeURIComponent(`Состав ${product.name}`)}`;
+$('[data-product-certificate]').href = `mailto:hb@halo-beauty.ru?subject=${encodeURIComponent(`Документ о соответствии — ${product.name}`)}`;
+
+const wishDialog = $('[data-wish-dialog]');
+$('[data-wish-open]').addEventListener('click', () => wishDialog.showModal());
+$('[data-wish-close]').addEventListener('click', () => wishDialog.close());
+wishDialog.addEventListener('click', event => { if (event.target === wishDialog) {
+  const box = wishDialog.getBoundingClientRect();
+  if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) wishDialog.close();
+} });
+$('[data-wish-copy]').addEventListener('click', async () => {
+  const url = new URL('product.html', location.href);
+  url.searchParams.set('id', id);
+  try {
+    await navigator.clipboard.writeText(url.href);
+    $('[data-wish-status]').textContent = 'Ссылка скопирована — её можно добавить в желание.';
+  } catch {
+    $('[data-wish-status]').textContent = `Скопируйте адрес: ${url.href}`;
+  }
+});
 
 let selectedVariant = catalogProduct?.variants?.[0] ?? null;
 const variantField = $('[data-detail-variants]');

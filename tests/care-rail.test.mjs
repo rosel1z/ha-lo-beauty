@@ -8,6 +8,7 @@ import {
   getCareResult,
   getNextRailIndex,
   wrapRailOffset,
+  initCareRail,
 } from '../care-rail.js';
 
 test('selects the approved care products in editorial order', () => {
@@ -62,4 +63,36 @@ test('moves through product indexes cyclically', () => {
   assert.equal(getNextRailIndex(0, -1, 6), 5);
   assert.equal(getNextRailIndex(2, 8, 6), 4);
   assert.equal(getNextRailIndex(2, 1, 0), 0);
+});
+
+test('releasing a touch drag preserves its offset and stops autoplay from undoing it', () => {
+  const element = () => ({
+    listeners: new Map(),
+    style: { values: {}, setProperty(key, value) { this.values[key] = value; } },
+    classList: { toggle() {}, add() {}, remove() {} },
+    setAttribute() {},
+    addEventListener(type, handler) { this.listeners.set(type, [...(this.listeners.get(type) || []), handler]); },
+    removeEventListener() {},
+    emit(type, event) { this.listeners.get(type)?.forEach(handler => handler(event)); },
+  });
+  const viewport = element();
+  const track = { ...element(), scrollWidth: 1200 };
+  const buttons = [{ ...element(), dataset: { careProduct: 'first' } }, { ...element(), dataset: { careProduct: 'second' } }];
+  const root = { ...element(), contains: () => false,
+    querySelector: selector => selector === '[data-care-rail-viewport]' ? viewport : selector === '[data-care-rail-track]' ? track : null,
+    querySelectorAll: selector => selector === '[data-care-product]' ? buttons : [],
+  };
+  let frame;
+  const rail = initCareRail(root, [{id:'first'}, {id:'second'}], {
+    windowRef: { ...element(), matchMedia: () => ({ matches: false }) },
+    documentRef: { ...element(), hidden: false },
+    requestFrame: callback => { frame = callback; return 1; }, cancelFrame() {},
+  });
+  viewport.emit('pointerdown', { pointerId: 1, clientX: 200, clientY: 100 });
+  viewport.emit('pointermove', { pointerId: 1, clientX: 160, clientY: 101 });
+  viewport.emit('pointerup', { pointerId: 1 });
+  assert.equal(track.style.values['--care-rail-offset'], '40px');
+  frame(1000); frame(1040);
+  assert.equal(track.style.values['--care-rail-offset'], '40px');
+  rail.destroy();
 });

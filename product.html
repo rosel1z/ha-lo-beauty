@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff">
     <title>Товар — Ha Lo Beauty</title>
-    <link rel="stylesheet" href="styles.css?v=33">
+    <link rel="stylesheet" href="styles.css?v=63">
   </head>
   <body class="product-page">
     <header class="site-header is-scrolled" data-header>
@@ -25,9 +25,13 @@
       <p>Помощь с подбором в Telegram</p>
     </section>
 
-    <main class="product-detail">
-      <div class="detail-gallery">
-        <img data-product-image src="assets/product-bb.png" alt="WOW BB BALM">
+    <nav class="product-breadcrumbs" aria-label="Вы здесь">
+      <a href="index.html">Главная</a><span aria-hidden="true">/</span><a href="catalog.html">Каталог</a><span aria-hidden="true">/</span><a data-product-category href="catalog.html?category=makeup">Макияж</a><span aria-hidden="true">/</span><span data-product-current aria-current="page">WOW BB BALM</span>
+    </nav>
+    <main class="product-detail product-detail--editorial">
+      <div class="detail-gallery" data-product-gallery>
+        <div class="detail-gallery-rail" data-gallery-rail tabindex="0" aria-label="Фотографии товара"><div class="detail-gallery-slide"><img data-product-image src="assets/product-bb.png" alt="WOW BB BALM"></div></div>
+        <div class="detail-gallery-navigation"><div class="detail-gallery-thumbs" data-gallery-thumbs aria-label="Выбор фотографии"></div><span data-gallery-position aria-live="polite">1 / 1</span></div>
       </div>
       <div class="detail-copy">
         <p class="detail-eyebrow" data-product-eyebrow>ББ крем для лица</p>
@@ -52,11 +56,21 @@
           <button class="add-to-cart" type="button" data-detail-add>Добавить в корзину</button>
         </div>
         <button class="detail-favorite" type="button" data-detail-favorite aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21S3 16 3 9.5C3 5 9 3.5 12 7.5 15 3.5 21 5 21 9.5 21 16 12 21 12 21Z"></path></svg><span>Добавить в избранное</span></button>
+        <button class="detail-wish" type="button" data-wish-open>Загадать желание <span>в Ohmywishes ↗</span></button>
         <a class="marketplace-buy" data-marketplace-buy href="https://www.wildberries.ru/catalog/0/search.aspx?search=Ha%20Lo%20Beauty" target="_blank" rel="noreferrer">Купить на Wildberries ↗</a>
         <p class="cart-confirmation" data-detail-confirmation aria-live="polite"></p>
         <a class="official-link" href="catalog.html">Вернуться к другим товарам →</a>
+        <div class="detail-information">
+          <details><summary>Способ применения<span aria-hidden="true"></span></summary><div><p data-product-usage>Следуйте рекомендациям производителя на упаковке.</p></div></details>
+          <details><summary>Состав<span aria-hidden="true"></span></summary><div><p>Полный актуальный состав INCI указан на упаковке. Чтобы уточнить состав перед покупкой, напишите нам название продукта.</p><a data-product-inci-request href="mailto:hb@halo-beauty.ru">Уточнить состав</a></div></details>
+          <details><summary>Сертификат соответствия<span aria-hidden="true"></span></summary><div><p>Запросите документ на этот продукт у нашей поддержки.</p><a data-product-certificate href="mailto:hb@halo-beauty.ru">Запросить документ</a></div></details>
+        </div>
       </div>
     </main>
+
+    <section class="section product-ingredients" aria-labelledby="ingredients-title"><h2 id="ingredients-title">Ключевые ингредиенты</h2><div class="product-ingredients-grid" data-product-ingredients></div><p data-product-ingredients-note hidden>Подробности о формуле уточняйте по составу на упаковке или у нашей поддержки.</p></section>
+    <section class="section faq-section" data-faq></section>
+    <dialog class="wish-dialog" data-wish-dialog aria-labelledby="wish-title"><button class="wish-close" type="button" data-wish-close aria-label="Закрыть">×</button><h2 id="wish-title">Пусть желание сбудется</h2><p>Скопируйте ссылку на этот товар и добавьте её в свой список на Ohmywishes.</p><button class="wish-copy" type="button" data-wish-copy>Скопировать ссылку</button><a href="https://ohmywishes.com/" target="_blank" rel="noreferrer">Открыть Ohmywishes ↗</a><p class="wish-status" data-wish-status aria-live="polite"></p></dialog>
 
     <section class="section recommendations detail-recommendations" aria-labelledby="detail-recommendations-title">
       <div class="recommendations-heading">
@@ -89,7 +103,7 @@
         <a href="https://goldapple.ru/brands/ha-lo-beauty" target="_blank" rel="noreferrer"><span>Золотое Яблоко</span><b>Перейти ↗</b></a>
       </div>
     </section>
-    <script type="module" src="script.js?v=33"></script>
-    <script type="module" src="product-detail.js?v=33"></script>
+    <script type="module" src="script.js?v=51"></script>
+    <script type="module" src="product-detail.js?v=34"></script>
   </body>
 </html>
