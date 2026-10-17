@@ -1,11 +1,59 @@
 import { clampQuantity, resolveShade, createCartConfirmation, addCartItem, toggleFavorite, isFavorite } from './site-state.js';
-import { createMobileDockMarkup, createDesktopMenuMarkup, createFooterMarkup, createHeaderActionsMarkup } from './navigation.js?v=22';
+import { createMobileDockMarkup, createDesktopMenuMarkup, createFooterMarkup, createHeaderActionsMarkup } from './navigation.js?v=23';
+import { catalogProducts } from './catalog-data.js';
+import { getCareRailProducts, initCareRail } from './care-rail.js?v=7';
+import { initLoyaltyCards } from './loyalty-cards.js?v=1';
+
+initLoyaltyCards();
 
 const header = document.querySelector('.site-header');
+const hero = document.querySelector('[data-hero]');
 const navigation = document.querySelector('.site-nav');
 const headerActions = header?.querySelector('.header-actions');
+const careRail = document.querySelector('[data-care-rail]');
+
+document.querySelectorAll('.shimmer-field').forEach((field, fieldIndex) => {
+  const fragment = document.createDocumentFragment();
+  for (let index = 0; index < 72; index += 1) {
+    const particle = document.createElement('i');
+    const seed = index + fieldIndex * 29;
+    const rawX = ((seed * 47.3 + 13) % 100);
+    let x = rawX > 33 && rawX < 67 ? (index % 2 ? rawX - 29 : rawX + 29) : rawX;
+    let y = ((seed * 31.7 + 7) % 100);
+    const glint = index % 12 === 0;
+    if (glint) {
+      const positions = [[5, 18], [25, 50], [12, 79], [82, 12], [96, 45], [88, 82]];
+      [x, y] = positions[(index / 12 + fieldIndex) % positions.length];
+    }
+    particle.className = glint ? 'shimmer-glint' : 'shimmer-grain';
+    particle.style.cssText = `--x:${x}%;--y:${y}%;--size:${glint ? 30 + index % 5 * 3 : 1.6 + index % 4 * 0.55}px;--delay:${-(index % 19) * 0.41}s;--duration:${4.2 + index % 7 * 0.6}s;--drift:${index % 2 ? 5 : -4}px`;
+    fragment.appendChild(particle);
+  }
+  field.appendChild(fragment);
+});
+
+if ('IntersectionObserver' in window) {
+  const shimmerObserver = new IntersectionObserver((entries) => entries.forEach(({ target, isIntersecting }) => target.classList.toggle('is-visible', isIntersecting)), { threshold: 0.05 });
+  document.querySelectorAll('.shimmer-field').forEach((field) => shimmerObserver.observe(field));
+} else {
+  document.querySelectorAll('.shimmer-field').forEach((field) => field.classList.add('is-visible'));
+}
+
+if (careRail) initCareRail(careRail, getCareRailProducts(catalogProducts));
+
+document.querySelectorAll('[data-before-after-range]').forEach((range) => {
+  const card = range.closest('.before-after-card');
+  const updateReveal = () => card?.style.setProperty('--reveal', `${range.value}%`);
+  range.addEventListener('input', updateReveal);
+  updateReveal();
+});
 
 if (headerActions) headerActions.innerHTML = createHeaderActionsMarkup();
+
+if (navigation && !navigation.querySelector('.mobile-menu-content')) {
+  const mobileLinks = [['account.html', 'Личный кабинет'], ['catalog.html', 'Каталог'], ['delivery.html', 'Доставка и оплата'], ['loyalty.html', 'Программа лояльности'], ['about.html', 'О бренде'], ['gift-card.html', 'Подарочная карта'], ['sale.html', 'Акции'], ['news.html', 'Новости'], ['contacts.html', 'Контакты']];
+  navigation.insertAdjacentHTML('beforeend', `<div class="mobile-menu-content">${mobileLinks.map(([href, label]) => `<a href="${href}">${label}</a>`).join('')}</div>`);
+}
 
 if (navigation && !document.querySelector('.mobile-dock')) {
   document.body.insertAdjacentHTML('beforeend', createMobileDockMarkup());
@@ -275,7 +323,8 @@ const menuButtons = [...document.querySelectorAll('.menu-toggle, [data-mobile-me
 const desktopMenu = document.querySelector('.desktop-menu-panel');
 
 const syncHeader = () => {
-  header?.classList.toggle('is-scrolled', window.scrollY > 24);
+  const heroExit = hero ? Math.max(24, hero.offsetHeight - (header?.offsetHeight ?? 0)) : 24;
+  header?.classList.toggle('is-scrolled', window.scrollY >= heroExit);
 };
 
 const setMenuOpen = (open) => {
@@ -304,6 +353,7 @@ if (window.location.hash === '#catalog-search') {
 }
 
 window.addEventListener('scroll', syncHeader, { passive: true });
+window.addEventListener('resize', syncHeader, { passive: true });
 syncHeader();
 
 const shadeButtons = [...document.querySelectorAll('[data-shade]')];
@@ -367,7 +417,8 @@ function showMotion(index, behavior = 'smooth') {
   if (!motionRail || !motionDots.length) return;
   motionIndex = (index + motionDots.length) % motionDots.length;
   const slide = motionRail.children[motionIndex];
-  motionRail.scrollTo({ left: slide?.offsetLeft ?? motionIndex * motionRail.clientWidth, behavior });
+  const firstSlide = motionRail.children[0];
+  motionRail.scrollTo({ left: slide ? slide.offsetLeft - (firstSlide?.offsetLeft ?? 0) : motionIndex * motionRail.clientWidth, behavior });
   motionDots.forEach((dot, dotIndex) => dot.setAttribute('aria-pressed', String(dotIndex === motionIndex)));
   scheduleMotion();
 }
@@ -381,6 +432,13 @@ document.querySelectorAll('.look-products-toggle').forEach((button) => {
     const isOpen = slide?.classList.toggle('products-open') ?? false;
     button.setAttribute('aria-expanded', String(isOpen));
     button.firstChild.textContent = isOpen ? 'Скрыть продукты ' : 'Посмотреть продукты ';
+    motionPaused = isOpen || Boolean(slide?.querySelector('video') && !slide.querySelector('video').paused);
+    if (motionPaused) {
+      window.clearTimeout(motionTimer);
+      motionProgress?.classList.remove('is-running');
+    } else {
+      scheduleMotion();
+    }
   });
 });
 document.querySelectorAll('.look-shades [data-look-product-index]').forEach((button) => {

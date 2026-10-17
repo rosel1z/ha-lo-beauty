@@ -2,7 +2,6 @@ export const mobileDockItems = Object.freeze([
   { id: 'menu', label: 'Меню', type: 'button' },
   { id: 'search', label: 'Поиск', href: 'catalog.html#catalog-search' },
   { id: 'catalog', label: 'Категории', href: 'catalog.html' },
-  { id: 'favorite', label: 'Избранное', href: 'favorites.html' },
   { id: 'cart', label: 'Корзина', href: 'cart.html' },
   { id: 'profile', label: 'Профиль', href: 'account.html' },
 ]);
@@ -41,7 +40,7 @@ export function createDesktopMenuMarkup() {
 }
 
 export function createFooterMarkup() {
-  return `<div class="footer-brand"><img src="assets/logo.svg" alt="Ha Lo Beauty"></div>
+  return `<div class="footer-brand"><img src="assets/logo-white.svg" alt="Ha Lo Beauty"></div>
     <nav class="footer-column" aria-label="Покупателям"><strong>Покупателям</strong><a href="catalog.html">Каталог</a><a href="cart.html">Корзина</a><a href="account.html">Личный кабинет</a><a href="delivery.html">Доставка и оплата</a><a href="loyalty.html">Программа лояльности</a></nav>
     <nav class="footer-column" aria-label="О компании"><strong>Ha Lo Beauty</strong><a href="about.html">О бренде</a><a href="sale.html">Акции</a><a href="news.html">Новости</a><a href="contacts.html">Контакты</a></nav>
     <nav class="footer-column" aria-label="Маркетплейсы"><strong>Мы онлайн</strong><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=ha%20lo%20beauty" target="_blank" rel="noreferrer">Wildberries ↗</a><a href="https://www.ozon.ru/search/?text=ha%20lo%20beauty" target="_blank" rel="noreferrer">Ozon ↗</a><a href="https://market.yandex.ru/search?text=ha%20lo%20beauty" target="_blank" rel="noreferrer">Яндекс Маркет ↗</a></nav>

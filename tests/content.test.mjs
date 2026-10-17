@@ -18,7 +18,7 @@ test('uses the separated Ha Lo Beauty brand name', async () => {
 
 test('contains every approved section and category', async () => {
   const html = await readIndex();
-  for (const id of ['top', 'categories', 'achievement', 'motion', 'recommendations', 'help']) {
+  for (const id of ['top', 'categories', 'motion', 'recommendations', 'help']) {
     assert.match(html, new RegExp(`id=["']${id}["']`));
   }
   for (const category of ['Уход', 'Макияж', 'Детское', 'Кисти', 'Наборы']) {
@@ -55,10 +55,10 @@ test('provides standalone cart and account pages', async () => {
   }
 });
 
-test('contains the approved award and product copy', async () => {
+test('keeps the retired influencer block off the home page', async () => {
   const html = await readIndex();
-  assert.match(html, /VOICE BEAUTY AWARDS 2025/);
-  assert.match(html, /Главный бьюти-инфлюенсер года/);
+  assert.doesNotMatch(html, /VOICE BEAUTY AWARDS 2025/);
+  assert.doesNotMatch(html, /Главный бьюти-инфлюенсер года/);
   assert.match(html, /ALL DAY LIP PENCIL/);
   assert.match(html, /650\s*₽/);
 });
@@ -66,8 +66,56 @@ test('contains the approved award and product copy', async () => {
 test('loads the concept stylesheet and supplied hero banner', async () => {
   const html = await readIndex();
   assert.match(html, /href=["']styles\.css(?:\?v=\d+)?["']/);
-  assert.match(html, /src=["']assets\/banner-main\.png["']/);
-  assert.match(html, /Бестселлер Ha Lo Beauty/);
+  assert.match(html, /poster=["']assets\/banner-main\.png["']/);
+  assert.match(html, /Новая коллекция Ha Lo Beauty/);
+});
+
+test('uses a silent looping launch film with paired header logos', async () => {
+  const html = await readIndex();
+  const video = html.match(/<video\b[^>]*data-hero-video[^>]*>/)?.[0] ?? '';
+  assert.match(video, /src=["']assets\/hero-launch\.mp4["']/);
+  for (const attribute of ['autoplay', 'muted', 'loop', 'playsinline']) {
+    assert.match(video, new RegExp(`\\b${attribute}\\b`));
+  }
+  assert.match(html, /assets\/logo-white\.svg/);
+  assert.match(html, /assets\/logo-black\.svg/);
+});
+
+test('turns the launch film into a branded catalog entry point', async () => {
+  const html = await readIndex();
+  assert.match(html, /class=["']hero-copy["']/);
+  assert.match(html, /Не прячь/);
+  assert.match(html, /своё сияние/);
+  assert.match(html, /href=["']catalog\.html["'][^>]*>\s*Смотреть каталог/);
+  assert.match(html, /Та самая косметика от певицы ХАННА/);
+});
+
+test('places an accessible care rail between bestsellers and reviews', async () => {
+  const html = await readIndex();
+  const productsIndex = html.indexOf('id="products"');
+  const railIndex = html.indexOf('data-care-rail');
+  const reviewsIndex = html.indexOf('class="results-reels"');
+
+  assert.ok(productsIndex < railIndex && railIndex < reviewsIndex);
+  assert.match(html, /Корейский уход/);
+  assert.doesNotMatch(html, /data-care-detail-index/);
+  assert.match(html, /корейскими технологами/i);
+  assert.match(html, /data-before-after-range/);
+  assert.match(html, /data-care-rail-track/);
+  assert.match(html, /data-care-detail[^>]*aria-live=["']polite["']/);
+  assert.doesNotMatch(html, /data-care-prev|data-care-next/);
+  assert.match(html, /href=["']catalog\.html\?category=care["']/);
+
+  for (const file of [
+    'moisturizing-cream.png',
+    'ultra-moisturizing-serum.png',
+    'skin-brightening-serum.png',
+    'wow-eye-cream.png',
+    'mother-of-creams.png',
+    'acne-stop-serum.png',
+  ]) {
+    assert.match(html, new RegExp(`assets/care-rail/${file.replace(/[.*+?^${}()|[\\]\\]/g, '\\$&')}`));
+  }
 });
 
 test('renders five category links and keeps the full catalog on its own page', async () => {

@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#ffffff">
     <meta name="description" content="Ha Lo Beauty — сияние, которое начинается с тебя.">
     <title>Ha Lo Beauty — концепт</title>
-    <link rel="stylesheet" href="styles.css?v=33">
+    <link rel="stylesheet" href="styles.css?v=62">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23000'/%3E%3Cpath d='M18 18h8v10h12V18h8v28h-8V36H26v10h-8z' fill='%23b69352'/%3E%3C/svg%3E">
   </head>
   <body id="top">
@@ -14,7 +14,8 @@
 
     <header class="site-header" data-header>
       <a class="brand" href="index.html" aria-label="Ha Lo Beauty — на главную">
-        <img src="assets/logo.svg" alt="Ha Lo Beauty">
+        <img class="brand-logo brand-logo--light" src="assets/logo-white.svg" alt="Ha Lo Beauty">
+        <img class="brand-logo brand-logo--dark" src="assets/logo-black.svg" alt="">
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Открыть меню">
         <span></span><span></span>
@@ -43,16 +44,21 @@
     </header>
 
     <main id="main-content">
-      <section class="hero" aria-label="Бестселлер Ha Lo Beauty">
-        <a class="hero-media" href="#products" aria-label="Смотреть бестселлер WOW BB BALM">
-          <img src="assets/banner-main.png" alt="Ханна представляет бестселлер WOW BB BALM">
-        </a>
+      <section class="hero" data-hero aria-label="Новая коллекция Ha Lo Beauty">
+        <div class="hero-media">
+          <video data-hero-video src="assets/hero-launch.mp4" poster="assets/banner-main.png" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+        </div>
+        <div class="hero-copy">
+          <p>Ha Lo Beauty</p>
+          <h1>Не прячь<br>своё сияние</h1>
+          <a href="catalog.html">Смотреть каталог <span aria-hidden="true">↗</span></a>
+        </div>
       </section>
 
       <div class="marquee" aria-label="Преимущества Ha Lo Beauty">
         <div class="marquee-track">
-          <span>Ha Lo Beauty</span><i></i><span>Произведено в Корее</span><i></i><span>Красота без правил</span><i></i><span>Бестселлеры для сияния</span><i></i>
-          <span aria-hidden="true">Ha Lo Beauty</span><i aria-hidden="true"></i><span aria-hidden="true">Произведено в Корее</span><i aria-hidden="true"></i><span aria-hidden="true">Красота без правил</span><i aria-hidden="true"></i><span aria-hidden="true">Бестселлеры для сияния</span><i aria-hidden="true"></i>
+          <span>Ha Lo Beauty</span><i></i><span>Та самая косметика от певицы ХАННА</span><i></i><span>Бестселлеры, о которых говорят</span><i></i><span>Красота без правил</span><i></i>
+          <span aria-hidden="true">Ha Lo Beauty</span><i aria-hidden="true"></i><span aria-hidden="true">Та самая косметика от певицы ХАННА</span><i aria-hidden="true"></i><span aria-hidden="true">Бестселлеры, о которых говорят</span><i aria-hidden="true"></i><span aria-hidden="true">Красота без правил</span><i aria-hidden="true"></i>
         </div>
       </div>
 
@@ -110,6 +116,50 @@
         </div>
       </section>
 
+      <section class="care-rail" data-care-rail aria-labelledby="care-rail-title">
+        <header class="care-rail-heading">
+          <h2 id="care-rail-title">Корейский уход</h2>
+          <div class="care-intro"><p>Разрабатываем уход вместе с корейскими технологами: кремы и сыворотки для увлажнения, сияния и комфорта кожи. Выбери своё средство и рассмотри результат.</p></div>
+        </header>
+        <div class="care-rail-layout">
+          <div class="care-rail-stage">
+            <div class="care-rail-viewport" data-care-rail-viewport tabindex="0" aria-label="Уходовые продукты Ha Lo Beauty">
+              <div class="care-rail-track" data-care-rail-track>
+                <button class="care-rail-item is-active" type="button" data-care-product="moisturizing-cream" aria-pressed="true"><span class="care-rail-platform"><img src="assets/care-rail/moisturizing-cream.png" alt="WOW MOISTURIZING CREAM"></span><span>Увлажняющий крем</span></button>
+                <button class="care-rail-item" type="button" data-care-product="ultra-moisturizing-serum" aria-pressed="false"><span class="care-rail-platform"><img src="assets/care-rail/ultra-moisturizing-serum.png" alt="ULTRA MOISTURIZING SERUM"></span><span>Увлажняющая сыворотка</span></button>
+                <button class="care-rail-item" type="button" data-care-product="brightening-serum" aria-pressed="false"><span class="care-rail-platform"><img src="assets/care-rail/skin-brightening-serum.png" alt="SKIN BRIGHTENING SERUM"></span><span>Сыворотка для сияния</span></button>
+                <button class="care-rail-item" type="button" data-care-product="eye-cream" aria-pressed="false"><span class="care-rail-platform"><img src="assets/care-rail/wow-eye-cream.png" alt="WOW EYE CREAM"></span><span>Крем для глаз</span></button>
+                <button class="care-rail-item" type="button" data-care-product="mother-of-creams" aria-pressed="false"><span class="care-rail-platform"><img src="assets/care-rail/mother-of-creams.png" alt="MOTHER OF CREAMS"></span><span>Ежедневный крем</span></button>
+                <button class="care-rail-item" type="button" data-care-product="acne-stop-serum" aria-pressed="false"><span class="care-rail-platform"><img src="assets/care-rail/acne-stop-serum.png" alt="ACNE STOP SERUM"></span><span>Сыворотка Acne Stop</span></button>
+                <div class="care-rail-item" data-care-duplicate="moisturizing-cream" aria-hidden="true"><span class="care-rail-platform"><img src="assets/care-rail/moisturizing-cream.png" alt=""></span><span>Увлажняющий крем</span></div>
+                <div class="care-rail-item" data-care-duplicate="ultra-moisturizing-serum" aria-hidden="true"><span class="care-rail-platform"><img src="assets/care-rail/ultra-moisturizing-serum.png" alt=""></span><span>Увлажняющая сыворотка</span></div>
+                <div class="care-rail-item" data-care-duplicate="brightening-serum" aria-hidden="true"><span class="care-rail-platform"><img src="assets/care-rail/skin-brightening-serum.png" alt=""></span><span>Сыворотка для сияния</span></div>
+                <div class="care-rail-item" data-care-duplicate="eye-cream" aria-hidden="true"><span class="care-rail-platform"><img src="assets/care-rail/wow-eye-cream.png" alt=""></span><span>Крем для глаз</span></div>
+                <div class="care-rail-item" data-care-duplicate="mother-of-creams" aria-hidden="true"><span class="care-rail-platform"><img src="assets/care-rail/mother-of-creams.png" alt=""></span><span>Ежедневный крем</span></div>
+                <div class="care-rail-item" data-care-duplicate="acne-stop-serum" aria-hidden="true"><span class="care-rail-platform"><img src="assets/care-rail/acne-stop-serum.png" alt=""></span><span>Сыворотка Acne Stop</span></div>
+              </div>
+            </div>
+          </div>
+          <article class="care-detail" data-care-detail aria-live="polite">
+            <div class="care-detail-result before-after-card" style="--reveal: 52%" aria-label="Результат применения до и после">
+              <div class="before-after-frame">
+                <div class="before-after-face before-after-face--before"><img src="assets/temporary/vois-before-1.png" alt="Результат до" data-care-result-before><span>До</span></div>
+                <div class="before-after-face before-after-face--after"><img src="assets/temporary/vois-after-1.png" alt="Результат после" data-care-result-after><span>После</span></div>
+                <i aria-hidden="true"></i>
+                <input type="range" min="12" max="88" value="52" data-before-after-range aria-label="Сравнить результат до и после">
+              </div>
+            </div>
+            <h3 data-care-detail-name>WOW MOISTURIZING CREAM</h3>
+            <p data-care-detail-copy>Увлажняющий крем для лица</p>
+            <strong data-care-detail-price>1 770 ₽</strong>
+            <p class="care-description" data-care-description></p>
+            <div class="care-ingredients-section"><h4>Ключевые ингредиенты</h4><div class="care-ingredients" data-care-ingredients></div></div>
+            <a data-care-detail-link href="product.html?id=moisturizing-cream">Смотреть продукт <span aria-hidden="true">↗</span></a>
+            <a class="care-detail-catalog" href="catalog.html?category=care">Весь уход</a>
+          </article>
+        </div>
+      </section>
+
       <section class="results-reels" aria-labelledby="results-reels-title">
         <header class="results-reels-heading">
           <h2 id="results-reels-title">Реальные отзывы</h2>
@@ -141,27 +191,6 @@
         </div>
       </section>
 
-      <section id="achievement" class="achievement" aria-labelledby="achievement-title">
-        <div class="achievement-copy">
-          <p>VOICE BEAUTY AWARDS 2025</p>
-          <h2 id="achievement-title">Главный бьюти-инфлюенсер года</h2>
-          <div class="brand-story">
-            <p>Ha Lo Beauty вырос из личной философии Ханны: уход должен давать заметный результат, а макияж — свободу быть разной каждый день.</p>
-            <p>В основе уходовых бестселлеров — корейская экспертиза и формулы с ниацинамидом, гиалуроновой кислотой, пантенолом и растительными экстрактами. Они помогают поддерживать увлажнение, ровный тон и естественное сияние кожи.</p>
-          </div>
-          <dl class="brand-values">
-            <div><dt>01</dt><dd>Корейские уходовые формулы</dd></div>
-            <div><dt>02</dt><dd>Уход и макияж в одном ритуале</dd></div>
-            <div><dt>03</dt><dd>Красота с характером</dd></div>
-          </dl>
-        </div>
-        <div class="achievement-media" aria-label="Ханна и продукты Ha Lo Beauty">
-          <figure class="polaroid polaroid--one"><img src="assets/award-hanna-01.jpg" alt="Ханна с наградой VOICE Beauty Awards 2025"><figcaption>VOICE Beauty Awards · 2025</figcaption></figure>
-          <figure class="polaroid polaroid--two"><img src="assets/award-hanna-02.jpg" alt="Ханна с наградой крупным планом"><figcaption>Главная награда премии</figcaption></figure>
-          <figure class="polaroid polaroid--three"><img src="assets/award-hanna-03.jpg" alt="Награда VOICE Beauty Awards 2025"><figcaption>Главный бьюти-инфлюенсер</figcaption></figure>
-        </div>
-      </section>
-
       <section id="motion" class="motion" aria-labelledby="motion-title">
         <div class="motion-heading">
           <div><h2 id="motion-title">Повтори образ Ханны</h2></div>
@@ -169,7 +198,7 @@
         </div>
         <div class="editorial-rail" data-editorial-rail>
           <article class="look-slide">
-            <svg class="sparkle-field" viewBox="0 0 1000 700" aria-hidden="true"><path d="M110 135v44M88 157h44M158 252v24M146 264h24M850 135v40M830 155h40M880 390v26M867 403h26M110 520v30M95 535h30"/><circle cx="210" cy="110" r="4"/><circle cx="800" cy="520" r="5"/><circle cx="160" cy="410" r="3"/></svg>
+            <div class="shimmer-field" aria-hidden="true"></div>
             <div class="look-video">
               <video src="assets/sparkle-reel.mp4" muted playsinline preload="metadata" data-motion-video data-start="0"></video>
               <button class="motion-play" type="button" data-motion-play aria-label="Воспроизвести видео">▶</button>
@@ -186,7 +215,7 @@
           </article>
 
           <article class="look-slide">
-            <svg class="sparkle-field sparkle-field--two" viewBox="0 0 1000 700" aria-hidden="true"><path d="M130 175v38M111 194h38M175 470v28M161 484h28M845 115v48M821 139h48M875 445v26M862 458h26"/><circle cx="210" cy="120" r="4"/><circle cx="790" cy="530" r="5"/><circle cx="120" cy="360" r="3"/></svg>
+            <div class="shimmer-field" aria-hidden="true"></div>
             <div class="look-video">
               <video src="assets/sparkle-reel.mp4" muted playsinline preload="metadata" data-motion-video data-start="9"></video>
               <button class="motion-play" type="button" data-motion-play aria-label="Воспроизвести второе видео">▶</button>
@@ -231,6 +260,37 @@
         </div>
       </section>
 
+      <section id="loyalty-club" class="section loyalty-club" aria-labelledby="loyalty-club-title">
+        <div class="loyalty-club-heading">
+          <h2 id="loyalty-club-title">Программа лояльности</h2>
+          <p>Больше красоты — больше бонусов. Присоединяйтесь к Ha Lo Club и получайте бонусы за покупки.</p>
+        </div>
+        <div class="loyalty-cards">
+          <article class="loyalty-tier">
+            <a class="loyalty-card" data-loyalty-card href="loyalty.html" aria-label="Бронза — программа лояльности">
+              <span class="loyalty-card-surface"><img src="assets/loyalty/bronze.png" alt="Бронзовая карта Ha Lo Beauty" loading="lazy" width="3081" height="1984"></span>
+            </a>
+            <h3>Бронза</h3>
+          </article>
+          <article class="loyalty-tier">
+            <a class="loyalty-card" data-loyalty-card href="loyalty.html" aria-label="Серебро — программа лояльности">
+              <span class="loyalty-card-surface"><img src="assets/loyalty/silver.png" alt="Серебряная карта Ha Lo Beauty" loading="lazy" width="3081" height="1984"></span>
+            </a>
+            <h3>Серебро</h3>
+          </article>
+          <article class="loyalty-tier">
+            <a class="loyalty-card" data-loyalty-card href="loyalty.html" aria-label="Золото — программа лояльности">
+              <span class="loyalty-card-surface"><img src="assets/loyalty/gold.png" alt="Золотая карта Ha Lo Beauty" loading="lazy" width="3081" height="1984"></span>
+            </a>
+            <h3>Золото</h3>
+          </article>
+        </div>
+        <div class="loyalty-club-bottom">
+          <div class="loyalty-benefits"><p><strong>10%</strong><span>возвращается бонусами</span></p><p><strong>до 50%</strong><span>заказа можно оплатить бонусами</span></p></div>
+          <a class="loyalty-details" href="loyalty.html">Подробнее о программе <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
       <section id="help" class="section help" aria-labelledby="help-title">
         <h2 id="help-title">Нужна помощь?</h2>
         <p>Поможем подобрать оттенок, оформить заказ и ответим на вопросы о доставке.</p>
@@ -250,9 +310,9 @@
     </main>
 
     <footer class="site-footer">
-      <img src="assets/logo.svg" alt="Ha Lo Beauty">
+      <img src="assets/logo-white.svg" alt="Ha Lo Beauty">
       <p>&copy;&nbsp;2026 Ha Lo Beauty. Все права защищены.</p>
     </footer>
-    <script type="module" src="script.js?v=33"></script>
+    <script type="module" src="script.js?v=50"></script>
   </body>
 </html>

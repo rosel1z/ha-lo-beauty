@@ -1,11 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mobileDockItems, createMobileDockMarkup, createDesktopMenuMarkup, createFooterMarkup } from '../navigation.js';
+import { mobileDockItems, createMobileDockMarkup, createDesktopMenuMarkup, createFooterMarkup, createHeaderActionsMarkup } from '../navigation.js';
 
-test('mobile dock exposes six useful actions in the requested order', () => {
-  assert.deepEqual(mobileDockItems.map((item) => item.id), ['menu', 'search', 'catalog', 'favorite', 'cart', 'profile']);
+test('mobile dock keeps favorites in the header instead of the bottom bar', () => {
+  assert.deepEqual(mobileDockItems.map((item) => item.id), ['menu', 'search', 'catalog', 'cart', 'profile']);
   const markup = createMobileDockMarkup();
+  const header = createHeaderActionsMarkup();
   assert.match(markup, /data-mobile-menu/);
+  assert.doesNotMatch(markup, /mobile-dock-item--favorite/);
+  assert.match(header, /href="favorites\.html" aria-label="Избранное"/);
   assert.match(markup, /catalog\.html#catalog-search/);
   assert.match(markup, /catalog\.html/);
   assert.match(markup, /cart\.html/);
