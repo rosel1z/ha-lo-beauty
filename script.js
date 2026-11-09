@@ -1,12 +1,14 @@
 import { clampQuantity, resolveShade, createCartConfirmation, addCartItem, toggleFavorite, isFavorite } from './site-state.js';
-import { createMobileDockMarkup, createDesktopMenuMarkup, createFooterMarkup, createHeaderActionsMarkup } from './navigation.js?v=23';
+import { createMobileDockMarkup, createDesktopMenuMarkup, createFooterMarkup, createHeaderActionsMarkup } from './navigation.js?v=24';
 import { catalogProducts } from './catalog-data.js';
 import { getCareRailProducts, initCareRail } from './care-rail.js?v=8';
 import { initLoyaltyCards } from './loyalty-cards.js?v=2';
 import { initFaq } from './faq.js?v=1';
+import { initBrandLife } from './brand-life.js?v=1';
 
 initLoyaltyCards();
 initFaq();
+initBrandLife();
 
 const header = document.querySelector('.site-header');
 const hero = document.querySelector('[data-hero]');
