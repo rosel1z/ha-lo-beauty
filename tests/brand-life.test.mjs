@@ -29,6 +29,9 @@ test('journal renders the upcoming launch without the removed label or generic s
   assert.doesNotMatch(preview, /Ha Lo Journal|Не прятать сияние|Что показать в следующем видео/);
   assert.match(preview, /Milk Chocolate/);
   assert.match(preview, /Dark Chocolate/);
+  assert.equal((preview.match(/class="journal-shade /g) || []).length, 2);
+  assert.match(preview, /Оттенок Milk Chocolate/);
+  assert.match(preview, /Совсем скоро покажем новинку вживую/);
   assert.match(preview, /data-journal-round-toggle/);
   assert.match(preview, /Какую упаковку выберешь/);
   assert.doesNotMatch(preview, /Мягкий шрифт|Выразительный шрифт/);
@@ -38,6 +41,10 @@ test('journal renders the upcoming launch without the removed label or generic s
   assert.equal((preview.match(/<img src="assets\/launch\/contour-/g) || []).length, 6);
   assert.match(preview, /data-launch-next/);
   assert.match(preview, /Ханна о блеске/);
+  assert.match(preview, /journal-rounds/);
+  assert.equal((preview.match(/class="journal-round-video"/g) || []).length, 2);
+  assert.match(preview, /telegram-3295.mp4/);
+  assert.match(preview, /halobeautybyhanna\/3295/);
   assert.doesNotMatch(preview, /Кружок для своих|Рассмотреть новинку|Шоколадный спойлер/);
   assert.match(preview, /<button[^>]*data-journal-round-toggle[^>]*aria-label="Включить звук"/);
   assert.equal((article.match(/<img src="assets\/launch\/contour-/g) || []).length, 12);
