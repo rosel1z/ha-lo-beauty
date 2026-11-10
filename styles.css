@@ -1635,11 +1635,12 @@ body#top #brand-life { order: 10; }
 /* Launch diary: supplied photography, a packaging choice and the real Telegram circle. */
 .journal-launch { display: flex; flex-direction: column; min-height: 0; background: #f7f4f5; }
 .journal-launch::after { display: none; }
-.journal-launch > img { position: static; height: 32rem; object-fit: contain; object-position: center; background: white; }
+.journal-launch > img { position: static; height: auto; aspect-ratio: 1400 / 1875; object-fit: contain; object-position: center; background: white; }
+.journal-launch:hover > img, .journal-launch:focus-visible > img { transform: none; }
 .journal-launch .journal-feature-copy { position: static; flex: 1; color: #430817; background: #f7f4f5; padding: 2rem; }
 .journal-launch h3 { max-width: 13ch; font-size: clamp(2.3rem,3.8vw,4rem); }
 .journal-launch .journal-feature-copy > p { color: #786e71; }
-.journal-round-card { grid-template-columns: 10rem minmax(0,1fr); min-height: 15rem; gap: 1.5rem; }
+.journal-round-card { grid-template-columns: minmax(12rem,1.25fr) minmax(0,1fr); min-height: 19rem; gap: 1.5rem; }
 .journal-round-card h3 { margin-bottom: 1.2rem; font-size: clamp(1.7rem,2.2vw,2.5rem); }
 .journal-round-frame { position: relative; aspect-ratio: 1; border-radius: 50%; overflow: hidden; background: #430817; box-shadow: 0 0 0 5px #fff,0 0 0 6px #43081725; }
 .journal-round-frame video { display: block; width: 100%; height: 100%; object-fit: cover; }
@@ -1659,16 +1660,19 @@ body#top #brand-life { order: 10; }
 .journal-launch-story-copy > a { display: flex; justify-content: space-between; gap: 1rem; width: fit-content; margin-top: 1.25rem; font-size: 1rem; }
 .journal-launch-gallery { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: .2rem .2rem 1rem; scrollbar-width: thin; }
 .journal-launch-gallery > a { flex: 0 0 clamp(20rem,38vw,33rem); overflow: hidden; border-radius: 1.5rem; scroll-snap-align: start; }
-.journal-launch-gallery img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+.journal-launch-gallery img { display: block; width: 100%; height: auto; object-fit: contain; }
 @media (max-width:1024px) {
   .journal-side { grid-template-columns: minmax(0,1fr); }
-  .journal-round-card { grid-template-columns: 9rem minmax(0,1fr); }
+  .journal-round-card { grid-template-columns: minmax(12rem,1fr) minmax(0,1fr); }
   .journal-packaging-poll .journal-poll-options img { height: 17rem; }
 }
 @media (max-width:600px) {
-  .journal-launch > img { height: 25rem; object-position: center; }
+  .journal-launch > img { height: auto; object-position: center; }
   .journal-launch .journal-feature-copy { padding: 1.5rem; }
-  .journal-round-card { grid-template-columns: 7rem minmax(0,1fr); gap: 1.2rem; padding: 1.5rem; min-height: 13rem; }
+  .journal-round-card { grid-template-columns: minmax(0,1fr); gap: 1.5rem; padding: 1.5rem; min-height: 0; text-align: center; }
+  .journal-round-frame { width: min(100%,17rem); justify-self: center; }
+  .journal-round-card h3 { max-width: none; }
+  .journal-round-source { margin-inline: auto; }
   .journal-round-card h3 { font-size: 1.65rem; margin-bottom: .65rem; }
   .journal-round-card .journal-tag { font-size: .8rem; }
   .journal-round-toggle { font-size: .9rem; }

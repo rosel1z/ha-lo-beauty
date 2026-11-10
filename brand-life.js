@@ -1,6 +1,6 @@
 export const BRAND_CHANNEL = 'https://t.me/s/halobeautybyhanna';
 const POLL_KEY = 'halo-packaging-poll-v2';
-const pollChoices = [['soft-type', 'Мягкий шрифт', 'assets/launch/mousse-soft-type.jpg'], ['bold-type', 'Выразительный шрифт', 'assets/launch/mousse-bold-type.jpg']];
+const pollChoices = [['soft-type', 'Вариант 1', 'assets/launch/mousse-soft-type.jpg'], ['bold-type', 'Вариант 2', 'assets/launch/mousse-bold-type.jpg']];
 const clips = [
   {src:'assets/sparkle-reel.mp4', poster:'assets/video-posters/clip-1.jpg', title:'Образ Ханны', copy:'Сияние в движении'},
   {src:'assets/review-2.mp4', poster:'assets/video-posters/clip-2.jpg', title:'Beauty-видео', copy:'Вдохновение для своего образа'},
@@ -22,7 +22,7 @@ const launchPhotos = [['contour-chocolate.jpg','Два оттенка стика
 export function journalMarkup(full) {
   return `<header class="brand-life-heading"><div><h2>Жизнь бренда</h2></div><p>Первые спойлеры новинок, закулисье и решения, которые принимаем вместе.</p>${full ? '' : '<a class="journal-all" href="news.html">Читать блог <span aria-hidden="true">↗</span></a>'}</header>
     <div class="journal-layout"><a class="journal-feature journal-launch" href="${full ? '#journal-launch' : 'news.html#journal-launch'}"><img src="assets/launch/contour-chocolate.jpg" alt="Будущая новинка — стики-скульпторы Milk Chocolate и Dark Chocolate" loading="lazy" width="1400" height="1875"><div class="journal-feature-copy"><span class="journal-tag">Скоро · первый спойлер</span><h3>Шоколадный спойлер</h3><p>Milk Chocolate &amp; Dark Chocolate. Два оттенка, серебристая упаковка и кисточка с другой стороны.</p><span class="journal-read">Рассмотреть новинку <b aria-hidden="true">↗</b></span></div></a>
-    <div class="journal-side"><article class="journal-note journal-round-card"><div class="journal-round-frame"><video class="journal-round-video" src="assets/launch/telegram-3540.mp4" poster="assets/launch/telegram-3540.jpg" playsinline preload="metadata" aria-label="Видеокружок Ha Lo Beauty из Telegram, пост 3540"></video><span aria-hidden="true">0:18</span></div><div><p class="journal-tag">Из нашего Telegram</p><h3>Кружок для своих</h3><button type="button" class="journal-round-toggle" data-journal-round-toggle aria-pressed="false">Смотреть со звуком <span aria-hidden="true">▷</span></button><a class="journal-round-source" href="https://t.me/halobeautybyhanna/3540" target="_blank" rel="noreferrer">Открыть пост ↗</a></div></article>${pollMarkup()}</div></div>
+    <div class="journal-side"><article class="journal-note journal-round-card"><div class="journal-round-frame"><video class="journal-round-video" src="assets/launch/telegram-3540.mp4" poster="assets/launch/telegram-3540.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Видеокружок Ha Lo Beauty из Telegram, пост 3540"></video><span aria-hidden="true">0:18</span></div><div><p class="journal-tag">Из нашего Telegram</p><h3>Кружок для своих</h3><button type="button" class="journal-round-toggle" data-journal-round-toggle aria-pressed="false">Включить звук <span aria-hidden="true">♫</span></button><a class="journal-round-source" href="https://t.me/halobeautybyhanna/3540" target="_blank" rel="noreferrer">Открыть пост ↗</a></div></article>${pollMarkup()}</div></div>
     <div class="journal-channel"><div class="journal-channel-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M27 6 22 27l-8-6-4 4 1-7L25 8 8 17l-6-2L27 6Z"/></svg></div><div><h3>Ещё ближе — в Telegram</h3><p>Новинки, закулисье и разговоры о красоте в @halobeautybyhanna.</p></div>${channelLink('Перейти в канал', 'journal-channel-button')}</div>
     ${full ? `<article class="journal-launch-story" id="journal-launch"><div class="journal-launch-story-copy"><p class="journal-tag">Будущая новинка</p><h2>Milk Chocolate &amp; Dark Chocolate</h2><p>А вот и наши долгожданные новинки потихоньку подъезжают! Новые стики-скульпторы — в двух вкусных оттенках: Milk Chocolate и Dark Chocolate.</p><p>Пока небольшой спойлер. Совсем скоро покажем их вживую, а сейчас можно рассмотреть детали упаковки.</p><p>И отдельная любовь — встроенная кисточка с другой стороны. Один стик, два шага: нанести и растушевать. Ну разве не прелесть?</p>${channelLink('Следить за запуском в Telegram')}</div><div class="journal-launch-gallery" tabindex="0" aria-label="Фото будущей новинки — листайте горизонтально">${launchPhotos.map(([file,alt])=>`<a href="assets/launch/${file}" target="_blank" rel="noreferrer"><img src="assets/launch/${file}" alt="${alt}" loading="lazy" width="1400" height="1875"></a>`).join('')}</div></article>` : ''}`;
 }
@@ -41,16 +41,19 @@ export function initBrandLife(root = document) {
     if (roundVideo && roundButton) {
       const syncRound = () => {
         const playing = !roundVideo.paused && !roundVideo.ended;
-        roundButton.setAttribute('aria-pressed', String(playing));
-        roundButton.innerHTML = playing ? 'Пауза <span aria-hidden="true">Ⅱ</span>' : 'Смотреть со звуком <span aria-hidden="true">▷</span>';
+        roundButton.setAttribute('aria-pressed', String(playing && !roundVideo.muted));
+        roundButton.innerHTML = playing && !roundVideo.muted ? 'Выключить звук <span aria-hidden="true">◌</span>' : 'Включить звук <span aria-hidden="true">♫</span>';
         roundVideo.closest('.journal-round-card').classList.toggle('is-playing', playing);
       };
       roundButton.addEventListener('click', async () => {
-        if (!roundVideo.paused) { roundVideo.pause(); return; }
-        try { roundVideo.muted = false; await roundVideo.play(); } catch { roundButton.textContent = 'Не удалось запустить — открой пост ниже'; }
+        try { roundVideo.muted = !roundVideo.muted; await roundVideo.play(); syncRound(); } catch { roundButton.textContent = 'Не удалось запустить — открой пост ниже'; }
       });
-      ['play','pause','ended'].forEach(event=>roundVideo.addEventListener(event,syncRound));
-      if ('IntersectionObserver' in window) new IntersectionObserver(entries=>entries.forEach(({isIntersecting})=>{if(!isIntersecting) roundVideo.pause();}),{threshold:.2}).observe(roundVideo);
+      roundVideo.muted = true;
+      roundVideo.loop = true;
+      ['play','pause','ended','volumechange'].forEach(event=>roundVideo.addEventListener(event,syncRound));
+      const resumeRound = () => { roundVideo.play().catch(syncRound); };
+      if ('IntersectionObserver' in window) new IntersectionObserver(entries=>entries.forEach(({isIntersecting})=>{if(isIntersecting && !document.hidden) resumeRound(); else roundVideo.pause();}),{threshold:.2}).observe(roundVideo);
+      else resumeRound();
       document.addEventListener('visibilitychange',()=>{if(document.hidden) roundVideo.pause();});
     }
   });
