@@ -35,6 +35,11 @@ test('journal renders the upcoming launch without the removed label or generic s
   assert.match(preview, /Вариант 1/);
   assert.match(preview, /Вариант 2/);
   assert.match(preview, /autoplay muted loop playsinline/);
-  assert.equal((article.match(/<img src="assets\/launch\/contour-/g) || []).length, 7);
+  assert.equal((preview.match(/<img src="assets\/launch\/contour-/g) || []).length, 6);
+  assert.match(preview, /data-launch-next/);
+  assert.match(preview, /Ханна о блеске/);
+  assert.doesNotMatch(preview, /Кружок для своих|Рассмотреть новинку|Шоколадный спойлер/);
+  assert.match(preview, /<button[^>]*data-journal-round-toggle[^>]*aria-label="Включить звук"/);
+  assert.equal((article.match(/<img src="assets\/launch\/contour-/g) || []).length, 12);
   assert.match(article, /Скоро|скоро/);
 });
