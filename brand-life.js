@@ -1,6 +1,6 @@
-export const BRAND_CHANNEL = 'https://t.me/halobeautybyhanna';
-const POLL_KEY = 'halo-brand-life-poll-v1';
-const pollChoices = [['makeup', 'Макияж за пять минут'], ['care', 'Ритуал ухода'], ['backstage', 'Что происходит за кадром']];
+export const BRAND_CHANNEL = 'https://t.me/s/halobeautybyhanna';
+const POLL_KEY = 'halo-packaging-poll-v2';
+const pollChoices = [['soft-type', 'Мягкий шрифт', 'assets/launch/mousse-soft-type.jpg'], ['bold-type', 'Выразительный шрифт', 'assets/launch/mousse-bold-type.jpg']];
 const clips = [
   {src:'assets/sparkle-reel.mp4', poster:'assets/video-posters/clip-1.jpg', title:'Образ Ханны', copy:'Сияние в движении'},
   {src:'assets/review-2.mp4', poster:'assets/video-posters/clip-2.jpg', title:'Beauty-видео', copy:'Вдохновение для своего образа'},
@@ -17,13 +17,14 @@ export function savePollChoice(choice, storage) {
   try { storage.setItem(POLL_KEY, choice); return true; } catch { return false; }
 }
 const channelLink = (label, cls = '') => `<a class="${cls}" href="${BRAND_CHANNEL}" target="_blank" rel="noreferrer">${label}<span aria-hidden="true">↗</span></a>`;
-const pollMarkup = () => `<aside class="journal-poll" aria-labelledby="journal-poll-title"><p class="journal-tag">Твой голос</p><h3 id="journal-poll-title">Что показать в следующем видео?</h3><div class="journal-poll-options">${pollChoices.map(([id,label]) => `<button type="button" data-journal-vote="${id}" aria-pressed="false"><span>${label}</span><i aria-hidden="true"></i></button>`).join('')}</div><p class="journal-poll-status" data-journal-poll-status aria-live="polite">Мини-опрос: выбор сохраняется только на этом устройстве.</p>${channelLink('Обсудить в канале', 'journal-poll-link')}</aside>`;
-function journalMarkup(full) {
-  return `<header class="brand-life-heading"><div><p class="journal-tag">Ha Lo Journal</p><h2>Жизнь бренда</h2></div><p>Образы, маленькие ритуалы и всё, что остаётся за красивым кадром.</p>${full ? '' : '<a class="journal-all" href="news.html">Читать блог <span aria-hidden="true">↗</span></a>'}</header>
-    <div class="journal-layout"><a class="journal-feature" href="${full ? '#journal-glow' : 'news.html#journal-glow'}"><img src="assets/award-hanna-01.jpg" alt="Ханна — образы Ha Lo Beauty" loading="lazy" width="960" height="1200"><div class="journal-feature-copy"><span class="journal-tag">Образы</span><h3>Не прятать сияние</h3><p>Смотрим на детали макияжа и находим свой акцент.</p><span class="journal-read">Читать историю <b aria-hidden="true">↗</b></span></div></a>
-    <div class="journal-side"><a class="journal-note" href="${full ? '#journal-details' : 'news.html#journal-details'}"><div><p class="journal-tag">В деталях</p><h3>Один акцент. Твоё настроение.</h3><span class="journal-read">Заглянуть ближе <b aria-hidden="true">↗</b></span></div><img src="assets/product-highlighter-gold.png" alt="Хайлайтер Ha Lo Beauty" loading="lazy" width="600" height="600"></a>${pollMarkup()}</div></div>
-    <div class="journal-channel"><div class="journal-channel-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M27 6 22 27l-8-6-4 4 1-7L25 8 8 17l-6-2L27 6Z"/></svg></div><div><h3>Ещё ближе — в Telegram</h3><p>Видео, закулисье и разговоры о красоте в @halobeautybyhanna.</p></div>${channelLink('Перейти в канал', 'journal-channel-button')}</div>
-    ${full ? `<div class="journal-stories"><article id="journal-glow"><p class="journal-tag">Образы</p><h2>Не прятать сияние</h2><p>Иногда весь образ держится на одной детали: блике на веке, влажном финише губ или мягком свете на скулах. Необязательно повторять макияж целиком — можно забрать только настроение.</p><p>В разделе «Повтори образ Ханны» собраны видео и продукты из образов. Смотрите, как текстуры выглядят в движении, выбирайте оттенки и пробуйте свою версию.</p><a href="index.html#motion">Посмотреть образы Ханны ↗</a></article><article id="journal-details"><p class="journal-tag">В деталях</p><h2>Один акцент. Твоё настроение.</h2><p>Деликатное свечение на каждый день или заметный блеск для вечера? Начните с одного акцента и посмотрите на него при разном освещении. Сияющие текстуры по-разному раскрываются в мягком дневном свете и под вечерними огнями.</p><p>А если хочется увидеть больше закулисья, свежих образов и видео — заглядывайте в канал бренда. Именно там продолжается разговор.</p>${channelLink('Читать канал бренда')}</article></div>` : ''}`;
+const pollMarkup = () => `<aside class="journal-poll journal-packaging-poll" aria-labelledby="journal-poll-title"><p class="journal-tag">Выбираем вместе</p><h3 id="journal-poll-title">Какую упаковку выберешь?</h3><p class="journal-poll-intro">Salted Caramel: два варианта, а какой твой?</p><div class="journal-poll-options">${pollChoices.map(([id,label,image]) => `<button type="button" data-journal-vote="${id}" aria-pressed="false"><img src="${image}" alt="Упаковка мусса для душа Salted Caramel — ${label.toLowerCase()}" loading="lazy" width="955" height="1280"><span>${label}<i aria-hidden="true"></i></span></button>`).join('')}</div><p class="journal-poll-status" data-journal-poll-status aria-live="polite">Выбор сохраняется на устройстве. Расскажи о нём в нашем канале.</p>${channelLink('Обсудить упаковку', 'journal-poll-link')}</aside>`;
+const launchPhotos = [['contour-chocolate.jpg','Два оттенка стика-скульптора в шоколадной композиции'],['contour-brush.jpg','Стик-скульптор со встроенной кистью'],['contour-silver.jpg','Серебристая упаковка стиков'],['contour-detail.jpg','Детали корпуса и кисти'],['contour-shades.jpg','Два оттенка стика-скульптора крупным планом'],['contour-duo.jpg','Стики Milk Chocolate и Dark Chocolate']];
+export function journalMarkup(full) {
+  return `<header class="brand-life-heading"><div><h2>Жизнь бренда</h2></div><p>Первые спойлеры новинок, закулисье и решения, которые принимаем вместе.</p>${full ? '' : '<a class="journal-all" href="news.html">Читать блог <span aria-hidden="true">↗</span></a>'}</header>
+    <div class="journal-layout"><a class="journal-feature journal-launch" href="${full ? '#journal-launch' : 'news.html#journal-launch'}"><img src="assets/launch/contour-chocolate.jpg" alt="Будущая новинка — стики-скульпторы Milk Chocolate и Dark Chocolate" loading="lazy" width="1400" height="1875"><div class="journal-feature-copy"><span class="journal-tag">Скоро · первый спойлер</span><h3>Шоколадный спойлер</h3><p>Milk Chocolate &amp; Dark Chocolate. Два оттенка, серебристая упаковка и кисточка с другой стороны.</p><span class="journal-read">Рассмотреть новинку <b aria-hidden="true">↗</b></span></div></a>
+    <div class="journal-side"><article class="journal-note journal-round-card"><div class="journal-round-frame"><video class="journal-round-video" src="assets/launch/telegram-3540.mp4" poster="assets/launch/telegram-3540.jpg" playsinline preload="metadata" aria-label="Видеокружок Ha Lo Beauty из Telegram, пост 3540"></video><span aria-hidden="true">0:18</span></div><div><p class="journal-tag">Из нашего Telegram</p><h3>Кружок для своих</h3><button type="button" class="journal-round-toggle" data-journal-round-toggle aria-pressed="false">Смотреть со звуком <span aria-hidden="true">▷</span></button><a class="journal-round-source" href="https://t.me/halobeautybyhanna/3540" target="_blank" rel="noreferrer">Открыть пост ↗</a></div></article>${pollMarkup()}</div></div>
+    <div class="journal-channel"><div class="journal-channel-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M27 6 22 27l-8-6-4 4 1-7L25 8 8 17l-6-2L27 6Z"/></svg></div><div><h3>Ещё ближе — в Telegram</h3><p>Новинки, закулисье и разговоры о красоте в @halobeautybyhanna.</p></div>${channelLink('Перейти в канал', 'journal-channel-button')}</div>
+    ${full ? `<article class="journal-launch-story" id="journal-launch"><div class="journal-launch-story-copy"><p class="journal-tag">Будущая новинка</p><h2>Milk Chocolate &amp; Dark Chocolate</h2><p>А вот и наши долгожданные новинки потихоньку подъезжают! Новые стики-скульпторы — в двух вкусных оттенках: Milk Chocolate и Dark Chocolate.</p><p>Пока небольшой спойлер. Совсем скоро покажем их вживую, а сейчас можно рассмотреть детали упаковки.</p><p>И отдельная любовь — встроенная кисточка с другой стороны. Один стик, два шага: нанести и растушевать. Ну разве не прелесть?</p>${channelLink('Следить за запуском в Telegram')}</div><div class="journal-launch-gallery" tabindex="0" aria-label="Фото будущей новинки — листайте горизонтально">${launchPhotos.map(([file,alt])=>`<a href="assets/launch/${file}" target="_blank" rel="noreferrer"><img src="assets/launch/${file}" alt="${alt}" loading="lazy" width="1400" height="1875"></a>`).join('')}</div></article>` : ''}`;
 }
 export function initBrandLife(root = document) {
   root.querySelectorAll('[data-brand-life]').forEach(section => {
@@ -35,6 +36,23 @@ export function initBrandLife(root = document) {
     };
     paint(readPollChoice(storage));
     section.querySelectorAll('[data-journal-vote]').forEach(button => button.addEventListener('click', () => paint(button.dataset.journalVote, savePollChoice(button.dataset.journalVote, storage))));
+    const roundVideo = section.querySelector('.journal-round-video');
+    const roundButton = section.querySelector('[data-journal-round-toggle]');
+    if (roundVideo && roundButton) {
+      const syncRound = () => {
+        const playing = !roundVideo.paused && !roundVideo.ended;
+        roundButton.setAttribute('aria-pressed', String(playing));
+        roundButton.innerHTML = playing ? 'Пауза <span aria-hidden="true">Ⅱ</span>' : 'Смотреть со звуком <span aria-hidden="true">▷</span>';
+        roundVideo.closest('.journal-round-card').classList.toggle('is-playing', playing);
+      };
+      roundButton.addEventListener('click', async () => {
+        if (!roundVideo.paused) { roundVideo.pause(); return; }
+        try { roundVideo.muted = false; await roundVideo.play(); } catch { roundButton.textContent = 'Не удалось запустить — открой пост ниже'; }
+      });
+      ['play','pause','ended'].forEach(event=>roundVideo.addEventListener(event,syncRound));
+      if ('IntersectionObserver' in window) new IntersectionObserver(entries=>entries.forEach(({isIntersecting})=>{if(!isIntersecting) roundVideo.pause();}),{threshold:.2}).observe(roundVideo);
+      document.addEventListener('visibilitychange',()=>{if(document.hidden) roundVideo.pause();});
+    }
   });
   root.querySelectorAll('[data-product-videos]').forEach(section => {
     const id = new URLSearchParams(window.location.search).get('id') || '';

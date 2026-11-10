@@ -1631,6 +1631,51 @@ body#top #brand-life { order: 10; }
   .journal-channel::before { animation: none; }
   .journal-feature > img,.journal-note img,.journal-read b { transition: none; transform: none !important; }
 }
+
+/* Launch diary: supplied photography, a packaging choice and the real Telegram circle. */
+.journal-launch { display: flex; flex-direction: column; min-height: 0; background: #f7f4f5; }
+.journal-launch::after { display: none; }
+.journal-launch > img { position: static; height: 32rem; object-fit: contain; object-position: center; background: white; }
+.journal-launch .journal-feature-copy { position: static; flex: 1; color: #430817; background: #f7f4f5; padding: 2rem; }
+.journal-launch h3 { max-width: 13ch; font-size: clamp(2.3rem,3.8vw,4rem); }
+.journal-launch .journal-feature-copy > p { color: #786e71; }
+.journal-round-card { grid-template-columns: 10rem minmax(0,1fr); min-height: 15rem; gap: 1.5rem; }
+.journal-round-card h3 { margin-bottom: 1.2rem; font-size: clamp(1.7rem,2.2vw,2.5rem); }
+.journal-round-frame { position: relative; aspect-ratio: 1; border-radius: 50%; overflow: hidden; background: #430817; box-shadow: 0 0 0 5px #fff,0 0 0 6px #43081725; }
+.journal-round-frame video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.journal-round-frame > span { position: absolute; bottom: .5rem; left: 50%; transform: translateX(-50%); padding: .15rem .55rem; border-radius: 1rem; color: white; background: #24131799; font-size: .75rem; pointer-events: none; }
+.journal-round-toggle { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 2.75rem; width: 100%; padding: .5rem 0; color: #430817; background: transparent; text-align: left; font-size: 1rem; cursor: pointer; }
+.journal-round-source { display: block; width: fit-content; padding-top: .5rem; color: #786e71 !important; font-size: .85rem; }
+.journal-round-card.is-playing .journal-round-frame { box-shadow: 0 0 0 5px #fff,0 0 0 7px #430817; }
+.journal-packaging-poll .journal-poll-intro { margin: -.4rem 0 1.25rem; color: #786e71; font-size: 1rem; line-height: 1.35; }
+.journal-packaging-poll .journal-poll-options { grid-template-columns: repeat(2,minmax(0,1fr)); gap: .75rem; }
+.journal-packaging-poll .journal-poll-options button { display: block; min-width: 0; padding: .5rem; border: 1px solid #43081720; border-radius: 1rem; }
+.journal-packaging-poll .journal-poll-options img { display: block; width: 100%; height: clamp(10rem,17vw,15rem); object-fit: contain; background: white; border-radius: .65rem; }
+.journal-packaging-poll .journal-poll-options button > span { display: flex; align-items: center; justify-content: space-between; gap: .5rem; padding: .7rem .2rem .3rem; font-size: .9rem; line-height: 1.3; }
+.journal-launch-story { padding-top: clamp(3rem,6vw,6rem); scroll-margin-top: 9rem; }
+.journal-launch-story-copy { max-width: 48rem; margin-bottom: 2.5rem; }
+.journal-launch-story h2 { margin: 0 0 1.75rem; max-width: 18ch; font-size: clamp(2.3rem,4.5vw,4.5rem); line-height: 1.08; }
+.journal-launch-story-copy > p:not(.journal-tag) { margin-bottom: 1rem; color: #786e71; font-size: 1.1rem; line-height: 1.45; }
+.journal-launch-story-copy > a { display: flex; justify-content: space-between; gap: 1rem; width: fit-content; margin-top: 1.25rem; font-size: 1rem; }
+.journal-launch-gallery { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: .2rem .2rem 1rem; scrollbar-width: thin; }
+.journal-launch-gallery > a { flex: 0 0 clamp(20rem,38vw,33rem); overflow: hidden; border-radius: 1.5rem; scroll-snap-align: start; }
+.journal-launch-gallery img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+@media (max-width:1024px) {
+  .journal-side { grid-template-columns: minmax(0,1fr); }
+  .journal-round-card { grid-template-columns: 9rem minmax(0,1fr); }
+  .journal-packaging-poll .journal-poll-options img { height: 17rem; }
+}
+@media (max-width:600px) {
+  .journal-launch > img { height: 25rem; object-position: center; }
+  .journal-launch .journal-feature-copy { padding: 1.5rem; }
+  .journal-round-card { grid-template-columns: 7rem minmax(0,1fr); gap: 1.2rem; padding: 1.5rem; min-height: 13rem; }
+  .journal-round-card h3 { font-size: 1.65rem; margin-bottom: .65rem; }
+  .journal-round-card .journal-tag { font-size: .8rem; }
+  .journal-round-toggle { font-size: .9rem; }
+  .journal-packaging-poll .journal-poll-options img { height: 12rem; }
+  .journal-packaging-poll .journal-poll-options button > span { font-size: .8rem; }
+  .journal-launch-gallery > a { flex-basis: 86%; }
+}
 .wish-dialog > a { display: block; margin-top: 1.25rem; color: inherit; text-align: center; }
 .wish-status { font-size: .9rem; overflow-wrap: anywhere; }
 @media (max-width:1024px) {
